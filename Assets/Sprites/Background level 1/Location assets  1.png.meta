@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2a6a3579677357e4e8811425c26ab937
+guid: a217c67bed94c25489a69328a0f81fa6
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -4082,6 +4082,27 @@ TextureImporter:
   - first:
       213: -2066988063978577537
     second: Location assets _1359
+  - first:
+      213: 7810135971615370810
+    second: Location assets  1_0
+  - first:
+      213: 4863275482869413730
+    second: Location assets  1_1
+  - first:
+      213: 9189186328530311616
+    second: Location assets  1_2
+  - first:
+      213: 4359911024756143655
+    second: Location assets  1_3
+  - first:
+      213: -7889615425276866905
+    second: Location assets  1_4
+  - first:
+      213: 2105098512172352606
+    second: Location assets  1_5
+  - first:
+      213: -8428930437285639582
+    second: Location assets  1_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -4171,148 +4192,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Location assets _0
+      name: Location assets  1_0
       rect:
         serializedVersion: 2
-        x: 139
-        y: 1505
-        width: 614
+        x: 140
+        y: 1506
+        width: 611
         height: 332
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc91c4e610dde0b50800000000000000
-      internalID: 6561424705340578253
+      spriteID: a3e62ab494d236c60800000000000000
+      internalID: 7810135971615370810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Location assets _1
+      name: Location assets  1_1
       rect:
         serializedVersion: 2
-        x: 970
+        x: 969
         y: 338
-        width: 1432
+        width: 1433
         height: 1501
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e8349190d166ccc0800000000000000
-      internalID: -3691155296160040730
+      spriteID: 2673c41f843dd7340800000000000000
+      internalID: 4863275482869413730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Location assets _2
+      name: Location assets  1_2
       rect:
         serializedVersion: 2
-        x: 2646
-        y: 1325
-        width: 585
-        height: 514
+        x: 2643
+        y: 1321
+        width: 591
+        height: 521
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46997e7139723d9a0800000000000000
-      internalID: -6209575948499052188
+      spriteID: 0c9dce6874c868f70800000000000000
+      internalID: 9189186328530311616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Location assets _3
+      name: Location assets  1_3
       rect:
         serializedVersion: 2
         x: 4346
         y: 376
-        width: 143
+        width: 144
         height: 1426
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f459d7833cf9eab0800000000000000
-      internalID: -4978170614828673802
+      spriteID: 72636ea2af3818c30800000000000000
+      internalID: 4359911024756143655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Location assets _4
-      rect:
-        serializedVersion: 2
-        x: 2735
-        y: 338
-        width: 1246
-        height: 444
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 872dd4bfef8422080800000000000000
-      internalID: -9213721627671539080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Location assets _5
+      name: Location assets  1_4
       rect:
         serializedVersion: 2
         x: 2731
-        y: 989
-        width: 466
-        height: 201
+        y: 990
+        width: 467
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04896c8fafc434b10800000000000000
-      internalID: 1964498503262967872
+      spriteID: 7ae0ee95294728290800000000000000
+      internalID: -7889615425276866905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Location assets _6
+      name: Location assets  1_5
       rect:
         serializedVersion: 2
-        x: 3527
-        y: 987
-        width: 454
-        height: 420
+        x: 3529
+        y: 988
+        width: 450
+        height: 417
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77eb8ff11652fd0b0800000000000000
-      internalID: -5701797504149307785
+      spriteID: e548c3b81ffc63d10800000000000000
+      internalID: 2105098512172352606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Location assets  1_6
+      rect:
+        serializedVersion: 2
+        x: 2736
+        y: 339
+        width: 1243
+        height: 442
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a8c19fc6c660b80800000000000000
+      internalID: -8428930437285639582
       vertices: []
       indices: 
       edges: []
