@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviour
     [Header("Задержка между прыжками/кулдаун")]
     [SerializeField] private float jumpCooldown = 1f;
     private GameObject spriteToTurn;
+
+    [Header("Ссылка на аниматор")]
+    [SerializeField]
+    private Animator animator;
+
     private bool cooldown = false, IsGrounded;
 
     private void Start()
@@ -42,13 +47,20 @@ public class PlayerController : MonoBehaviour
         if (_joystick.Horizontal < 0 )
         {
             spriteToTurn.transform.rotation = Quaternion.Euler(new Vector2(0,180));
+            animator.SetBool("Run", true);
         }
        
         //если джойстик отклоняется впрапо, поворачиваем спрайт персонажа вправо
         else if (_joystick.Horizontal > 0)
         {
             spriteToTurn.transform.rotation = Quaternion.Euler(new Vector2(0, 0));
+            animator.SetBool("Run", true);
         }
+        else
+        {
+            animator.SetBool("Run", false);
+        }
+
 
         //if (Input.GetKey(KeyCode.Space))
         //{
@@ -83,6 +95,8 @@ public class PlayerController : MonoBehaviour
         if(cooldown == false)
         {
             _rigidbody.velocity = new Vector2(0, _jumpSpeed * 10);
+            animator.SetTrigger("Jump");
+
         }
         cooldown = true;
         yield return new WaitForSeconds(jumpCooldown);
