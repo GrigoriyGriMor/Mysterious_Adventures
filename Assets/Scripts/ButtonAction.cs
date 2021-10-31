@@ -9,7 +9,10 @@ public class ButtonAction : MonoBehaviour
     [Header("Class CheckItem")]
     [SerializeField]
     private CheckItem checkItem;
-    private readonly object Action;
+
+    [Header("Ссылка на аниматор ГГ")]
+    [SerializeField]
+    private Animator animator;
 
     //[Header("Class CheckPointUseItem")]
     //[SerializeField]
@@ -57,6 +60,7 @@ public class ButtonAction : MonoBehaviour
         {
             scriptInventory.AddItem(getItem);
             getItem.SetActive(false);
+            animator.SetTrigger("Selection");
         }
     }
 
@@ -78,11 +82,13 @@ public class ButtonAction : MonoBehaviour
                 {
                     if (Item.GetComponent<Item>().id == id)
                     {
+                        animator.SetTrigger("Selection");
                         ActionPoint();
                         if (!checkItem.GetMultipleUse())
                         {
-                           scriptInventory.DelItem(Item);  // удаление из инвентаря
+                            scriptInventory.DelItem(Item);  // удаление из инвентаря
                         }
+
                         return;
                     }
                 }
