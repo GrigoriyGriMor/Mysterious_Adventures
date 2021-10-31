@@ -8,9 +8,9 @@ using UnityEngine.UI;
 /// </summary>
 public class Item : MonoBehaviour
 {
-    [Header("Name Item")]
+    [Header("Имя предмета")]
     public string nameItem;
 
-    [Header("ID Item")]
+    [Header("ID предмета")]
     public int id;
 }

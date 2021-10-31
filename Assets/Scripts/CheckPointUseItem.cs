@@ -10,7 +10,8 @@ public class CheckPointUseItem : MonoBehaviour
     /// </summary>
     //[HideInInspector]
     public bool isPointUseItem;
-    private GameObject currentPointUseItem;
+    //private GameObject currentPointUseItem;
+    private PointUseItem currentPointUseItem;
 
 
     /// <summary>
@@ -22,7 +23,7 @@ public class CheckPointUseItem : MonoBehaviour
         if (collision.tag == "PointUseItem")
         {
             isPointUseItem = true;
-            currentPointUseItem = collision.gameObject;
+            currentPointUseItem = collision.GetComponent<PointUseItem>();
         }
     }
 
@@ -39,19 +40,58 @@ public class CheckPointUseItem : MonoBehaviour
         }
     }
 
+
     /// <summary>
-    /// возвращает ID точки использования вещи
+    /// возвращает true если это точка использования предмета
     /// </summary>
     /// <returns></returns>
-    public int GetIDPointUseItem()
+    public bool GetIsPointUseItem()
     {
-        int getIDPointUseItem = -1;
+        return isPointUseItem;
+    }
+
+    /// <summary>
+    /// возвращает массив ID предметов для использования
+    /// </summary>
+    /// <returns></returns>
+    public List<int> GetIDPointUseItem()
+    {
+        List<int> getIDPointUseItem = new List<int>() { -1 }; // пустой id
 
         if (isPointUseItem)
         {
-            getIDPointUseItem = currentPointUseItem.GetComponent<PointUseItem>().id;
+            getIDPointUseItem = currentPointUseItem.id;   //.GetComponent<PointUseItem>().id;
         }
-
         return getIDPointUseItem;
     }
+
+
+    /// <summary>
+    /// возврат true если не нужен предмет для активации
+    /// </summary>
+    /// <returns></returns>
+    public bool NeedNotItem()
+    {
+        return currentPointUseItem.needNotItem;
+    }
+
+    /// <summary>
+    /// возврат true если Многоразовое использование
+    /// </summary>
+    /// <returns></returns>
+    public bool MultipleUse()
+    {
+        return currentPointUseItem.multipleUse;
+    }
+
+    /// <summary>
+    /// "Ссылка на обьект события
+    /// </summary>
+    /// <returns></returns>
+    public ObjectEvent GetObjectEvent()
+    {
+        return null; // currentPointUseItem.objectEvent;
+    }
+
+
 }
