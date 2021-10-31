@@ -18,11 +18,11 @@ public class CheckItem : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Item")
-        {
+      //  if (collision.tag == "Item")
+      //  {
             isItem = true;
             currentItem = collision.gameObject;
-        }
+       // }
     }
 
     /// <summary>
@@ -31,15 +31,24 @@ public class CheckItem : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Item")
-        {
+      //  if (collision.tag == "Item")
+      //  {
             isItem = false;
             currentItem = null;
-        }
+      //  }
     }
 
     /// <summary>
-    /// возвращает GameObject вещи
+    /// возвращает true если это предмет
+    /// </summary>
+    /// <returns></returns>
+    public bool GetIsItem()
+    {
+        return isItem;
+    }
+
+    /// <summary>
+    /// возвращает GameObject
     /// </summary>
     /// <returns></returns>
     public GameObject GetItem()
@@ -54,5 +63,44 @@ public class CheckItem : MonoBehaviour
         return getItem;
     }
 
+    public List<int> GetIDPointUseItem()
+    {
+        List<int> getIDPointUseItem = new List<int>() { -1 }; // пустой id
+
+        if (isItem)
+        {
+            getIDPointUseItem = currentItem.GetComponent<PointUseItem>().id;
+        }
+        return getIDPointUseItem;
+    }
+
+
+    public bool GetMultipleUse()
+    {
+        return currentItem.GetComponent<PointUseItem>().multipleUse;
+    }
+
+    public string GetTagItem()
+    {
+        string currentTag = "";
+
+        if (isItem)
+        {
+            currentTag = currentItem.tag;
+        }
+
+        return currentTag;
+    }
+
+    /// <summary>
+    /// "—сылка на обьект событи€
+    /// </summary>
+    /// <returns></returns>
+    public Animator GetAnimatorEvent()
+    {
+        Animator animatorEvent = currentItem.GetComponent<PointUseItem>().animatorEvent;
+
+        return animatorEvent;
+    }
 
 }
