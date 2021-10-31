@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: c682b6060d78ea04997511182192fb01
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4276823398972365023
+    second: redmet podbirati blet_0
+  - first:
+      213: -5093859492129545965
+    second: redmet podbirati blet_1
+  - first:
+      213: -2787372325486578340
+    second: redmet podbirati blet_2
+  - first:
+      213: 1586571999926512948
+    second: redmet podbirati blet_3
+  - first:
+      213: 3727119880140414156
+    second: redmet podbirati blet_4
+  - first:
+      213: 685920695683594183
+    second: redmet podbirati blet_5
+  - first:
+      213: 8942522750867520832
+    second: redmet podbirati blet_6
+  - first:
+      213: -178471037525394995
+    second: redmet podbirati blet_7
+  - first:
+      213: 3303994530970766506
+    second: redmet podbirati blet_8
+  - first:
+      213: -136382972778712862
+    second: redmet podbirati blet_9
+  - first:
+      213: -2474660284760886309
+    second: redmet podbirati blet_10
+  - first:
+      213: -1028474132920634517
+    second: redmet podbirati blet_11
+  - first:
+      213: -34963397719481292
+    second: redmet podbirati blet_12
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: redmet podbirati blet_0
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 4092
+        width: 386
+        height: 808
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1276c2937cba5a4c0800000000000000
+      internalID: -4276823398972365023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmet podbirati blet_1
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 4095
+        width: 438
+        height: 793
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 311edd3c7c9fe49b0800000000000000
+      internalID: -5093859492129545965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmet podbirati blet_2
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 4087
+        width: 497
+        height: 789
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c553e9a53a34159d0800000000000000
+      internalID: -2787372325486578340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmet podbirati blet_3
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 3244
+        width: 545
+        height: 776
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d6332f3d2a40610800000000000000
+      internalID: 1586571999926512948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmet podbirati blet_4
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 3244
+        width: 584
+        height: 753
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cccd01ba8c369b330800000000000000
+      internalID: 3727119880140414156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmet podbirati blet_5
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 3246
+        width: 605
+        height: 742
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c73f421d31e48900800000000000000
+      internalID: 685920695683594183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmet podbirati blet_6
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 2401
+        width: 565
+        height: 758
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04dbe49ff093a1c70800000000000000
+      internalID: 8942522750867520832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmet podbirati blet_7
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 2394
+        width: 523
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc97a957981f58df0800000000000000
+      internalID: -178471037525394995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmet podbirati blet_8
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 2404
+        width: 473
+        height: 788
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac885645852add20800000000000000
+      internalID: 3303994530970766506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmet podbirati blet_9
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1559
+        width: 412
+        height: 794
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e0fc1aa8687b1ef0800000000000000
+      internalID: -136382972778712862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmet podbirati blet_10
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 1550
+        width: 388
+        height: 813
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd37f03159d38add0800000000000000
+      internalID: -2474660284760886309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmet podbirati blet_11
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 1562
+        width: 388
+        height: 808
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b637696a9302ab1f0800000000000000
+      internalID: -1028474132920634517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmet podbirati blet_12
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 718
+        width: 386
+        height: 808
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4342aca99f8c38ff0800000000000000
+      internalID: -34963397719481292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6511a00697a0aa14ea831a8dd9608cdd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
