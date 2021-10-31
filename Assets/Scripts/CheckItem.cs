@@ -63,6 +63,26 @@ public class CheckItem : MonoBehaviour
         return getItem;
     }
 
+    /// <summary>
+    /// Возврат ID предмета
+    /// </summary>
+    /// <returns></returns>
+    public int GetIdItem()
+    {
+        int currentId = -1;
+
+        if (isItem)
+        {
+            currentId = currentItem.GetComponent<Item>().id;
+
+        }
+        return currentId;
+    }
+
+    /// <summary>
+    /// возвращает массив ID предметов для использования на точке
+    /// </summary>
+    /// <returns></returns>
     public List<int> GetIDPointUseItem()
     {
         List<int> getIDPointUseItem = new List<int>() { -1 }; // пустой id
@@ -74,12 +94,20 @@ public class CheckItem : MonoBehaviour
         return getIDPointUseItem;
     }
 
-
+    /// <summary>
+    /// возврат true если Многоразовое использование
+    /// </summary>
+    /// <returns></returns>
     public bool GetMultipleUse()
     {
         return currentItem.GetComponent<PointUseItem>().multipleUse;
     }
 
+
+    /// <summary>
+    /// Возврат Tag предмета
+    /// </summary>
+    /// <returns></returns>
     public string GetTagItem()
     {
         string currentTag = "";
