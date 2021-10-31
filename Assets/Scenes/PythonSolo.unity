@@ -9851,6 +9851,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5102317760582373014, guid: 05f75b4a2793bb14fbc46a5ceb22612f, type: 3}
+      propertyPath: id.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102317760582373014, guid: 05f75b4a2793bb14fbc46a5ceb22612f, type: 3}
+      propertyPath: id.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102317760582373014, guid: 05f75b4a2793bb14fbc46a5ceb22612f, type: 3}
       propertyPath: namePointUseItem
       value: Fang
       objectReference: {fileID: 0}
@@ -11808,6 +11816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkItem: {fileID: 1556949758}
   animator: {fileID: 1212202035}
+  countScene: 1
 --- !u!1 &1769807559
 GameObject:
   m_ObjectHideFlags: 0

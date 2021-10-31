@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonAction : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class ButtonAction : MonoBehaviour
     //[Header("Class CheckPointUseItem")]
     //[SerializeField]
     //private CheckPointUseItem checkPointUseItem;
+
+    [Header("Номер сцены для загрузки")]
+    [SerializeField]
+    private int countScene;
 
     private void Start()
     {
@@ -56,12 +61,21 @@ public class ButtonAction : MonoBehaviour
         Debug.Log("TakeItem");
         GameObject getItem = checkItem.GetItem();
 
+        if (checkItem.GetIdItem() == 10)
+        {
+            Debug.Log("Load Scene");
+            SceneManager.LoadScene(countScene);
+        }
+
         if (getItem)
         {
             scriptInventory.AddItem(getItem);
             getItem.SetActive(false);
-            animator.SetTrigger("Selection");
+
+            animator.SetTrigger("Selection"); // Запускаем анимацию
         }
+
+        
     }
 
     /// <summary>
@@ -82,8 +96,9 @@ public class ButtonAction : MonoBehaviour
                 {
                     if (Item.GetComponent<Item>().id == id)
                     {
-                        animator.SetTrigger("Selection");
+
                         ActionPoint();
+
                         if (!checkItem.GetMultipleUse())
                         {
                             scriptInventory.DelItem(Item);  // удаление из инвентаря
@@ -112,6 +127,8 @@ public class ButtonAction : MonoBehaviour
     /// <param name="id"></param>
     public void ActionPoint()
     {
+        animator.SetTrigger("Selection");  // Запускаем анимацию
+
         checkItem.GetAnimatorEvent().SetTrigger("Activate");
     }
 }
