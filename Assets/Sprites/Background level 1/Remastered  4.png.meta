@@ -1,0 +1,1020 @@
+fileFormatVersion: 2
+guid: 68ef252cb1340924e85d67c3f3c74167
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8438918196225268626
+    second: Remastered  4_0
+  - first:
+      213: -1987736575204990543
+    second: Remastered  4_1
+  - first:
+      213: 5275353314250207148
+    second: Remastered  4_2
+  - first:
+      213: -4416523435509578920
+    second: Remastered  4_3
+  - first:
+      213: 3900887809273018517
+    second: Remastered  4_4
+  - first:
+      213: 7342883799018527403
+    second: Remastered  4_5
+  - first:
+      213: 3471921801449343661
+    second: Remastered  4_6
+  - first:
+      213: -3139554082511265689
+    second: Remastered  4_7
+  - first:
+      213: 3045354148696664874
+    second: Remastered  4_8
+  - first:
+      213: -8965954502135082550
+    second: Remastered  4_9
+  - first:
+      213: 5907570446730277423
+    second: Remastered  4_10
+  - first:
+      213: -5801061684491465301
+    second: Remastered  4_11
+  - first:
+      213: -3592897676422090491
+    second: Remastered  4_12
+  - first:
+      213: 8071878629492647172
+    second: Remastered  4_13
+  - first:
+      213: 3539464925280086583
+    second: Remastered  4_14
+  - first:
+      213: 6421232944081303063
+    second: Remastered  4_15
+  - first:
+      213: -3625699574557737230
+    second: Remastered  4_16
+  - first:
+      213: 6251611000872030775
+    second: Remastered  4_17
+  - first:
+      213: -5253975860064300824
+    second: Remastered  4_18
+  - first:
+      213: -221523646215278082
+    second: Remastered  4_19
+  - first:
+      213: 5322773988273950118
+    second: Remastered  4_20
+  - first:
+      213: -6207656297849139127
+    second: Remastered  4_21
+  - first:
+      213: -6199074971406305301
+    second: Remastered  4_22
+  - first:
+      213: 4820958967273446406
+    second: Remastered  4_23
+  - first:
+      213: 2123182923487045878
+    second: Remastered  4_24
+  - first:
+      213: -3574199997350199694
+    second: Remastered  4_25
+  - first:
+      213: 2564411750469421283
+    second: Remastered  4_26
+  - first:
+      213: 6513242916990731631
+    second: Remastered  4_27
+  - first:
+      213: 5674359925299939962
+    second: Remastered  4_28
+  - first:
+      213: 8988804488288949426
+    second: Remastered  4_29
+  - first:
+      213: -3336337126250899507
+    second: Remastered  4_30
+  - first:
+      213: 1357073985425703864
+    second: Remastered  4_31
+  - first:
+      213: 3084101040176377010
+    second: Remastered  4_32
+  - first:
+      213: -5397671866414716589
+    second: Remastered  4_33
+  - first:
+      213: 3763122252607423483
+    second: Remastered  4_34
+  - first:
+      213: -1280164679615022929
+    second: Remastered  4_35
+  - first:
+      213: 7889842035635604514
+    second: Remastered  4_36
+  - first:
+      213: -8533096485456078422
+    second: Remastered  4_37
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Remastered  4_0
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 2877
+        width: 246
+        height: 1087
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29b569e536f0d1570800000000000000
+      internalID: 8438918196225268626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_1
+      rect:
+        serializedVersion: 2
+        x: 2409
+        y: 2884
+        width: 186
+        height: 1087
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1ead7cd142a64e0800000000000000
+      internalID: -1987736575204990543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_2
+      rect:
+        serializedVersion: 2
+        x: 2769
+        y: 2756
+        width: 230
+        height: 1205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf2098a3e1d53940800000000000000
+      internalID: 5275353314250207148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_3
+      rect:
+        serializedVersion: 2
+        x: 3230
+        y: 2890
+        width: 212
+        height: 1081
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 853834cc55b55b2c0800000000000000
+      internalID: -4416523435509578920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_4
+      rect:
+        serializedVersion: 2
+        x: 3641
+        y: 2871
+        width: 358
+        height: 1087
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 598be547bccb22630800000000000000
+      internalID: 3900887809273018517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_5
+      rect:
+        serializedVersion: 2
+        x: 4192
+        y: 2877
+        width: 292
+        height: 1087
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa587339e927e560800000000000000
+      internalID: 7342883799018527403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_6
+      rect:
+        serializedVersion: 2
+        x: 4920
+        y: 3634
+        width: 442
+        height: 414
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa825fbb7ebe2030800000000000000
+      internalID: 3471921801449343661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_7
+      rect:
+        serializedVersion: 2
+        x: 5439
+        y: 3634
+        width: 449
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760e9ce22301e64d0800000000000000
+      internalID: -3139554082511265689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_8
+      rect:
+        serializedVersion: 2
+        x: 5958
+        y: 3634
+        width: 388
+        height: 715
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ba3589675434a20800000000000000
+      internalID: 3045354148696664874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_9
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 717
+        width: 1443
+        height: 2693
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac19ceb42e7829380800000000000000
+      internalID: -8965954502135082550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_10
+      rect:
+        serializedVersion: 2
+        x: 4806
+        y: 3224
+        width: 322
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2234fa8508ebf150800000000000000
+      internalID: 5907570446730277423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_11
+      rect:
+        serializedVersion: 2
+        x: 5147
+        y: 3220
+        width: 331
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: badc1cf122d7e7fa0800000000000000
+      internalID: -5801061684491465301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_12
+      rect:
+        serializedVersion: 2
+        x: 5535
+        y: 3220
+        width: 250
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501f88a6996732ec0800000000000000
+      internalID: -3592897676422090491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_13
+      rect:
+        serializedVersion: 2
+        x: 5875
+        y: 3211
+        width: 321
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 405e9fcc8d2150070800000000000000
+      internalID: 8071878629492647172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_14
+      rect:
+        serializedVersion: 2
+        x: 6236
+        y: 3195
+        width: 258
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a264eb894be1130800000000000000
+      internalID: 3539464925280086583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_15
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 717
+        width: 714
+        height: 2048
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 716700c675dcc1950800000000000000
+      internalID: 6421232944081303063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_16
+      rect:
+        serializedVersion: 2
+        x: 2890
+        y: 717
+        width: 712
+        height: 2048
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe733c527deeadc0800000000000000
+      internalID: -3625699574557737230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_17
+      rect:
+        serializedVersion: 2
+        x: 3785
+        y: 2188
+        width: 384
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 732d6e4351f22c650800000000000000
+      internalID: 6251611000872030775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_18
+      rect:
+        serializedVersion: 2
+        x: 4606
+        y: 2541
+        width: 1253
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e0d362cac02617b0800000000000000
+      internalID: -5253975860064300824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_19
+      rect:
+        serializedVersion: 2
+        x: 5917
+        y: 2544
+        width: 471
+        height: 478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef13dfdda6dfcecf0800000000000000
+      internalID: -221523646215278082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_20
+      rect:
+        serializedVersion: 2
+        x: 4260
+        y: 2198
+        width: 300
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad02c6bdba4ed940800000000000000
+      internalID: 5322773988273950118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_21
+      rect:
+        serializedVersion: 2
+        x: 4666
+        y: 2143
+        width: 622
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9405cf69c79f9d9a0800000000000000
+      internalID: -6207656297849139127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_22
+      rect:
+        serializedVersion: 2
+        x: 5375
+        y: 2269
+        width: 477
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be7ff49582678f9a0800000000000000
+      internalID: -6199074971406305301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_23
+      rect:
+        serializedVersion: 2
+        x: 3778
+        y: 1685
+        width: 391
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60c511163ac77e240800000000000000
+      internalID: 4820958967273446406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_24
+      rect:
+        serializedVersion: 2
+        x: 4272
+        y: 1682
+        width: 298
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f8ee9bae9f077d10800000000000000
+      internalID: 2123182923487045878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_25
+      rect:
+        serializedVersion: 2
+        x: 4609
+        y: 1678
+        width: 298
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27e3db11a04e56ec0800000000000000
+      internalID: -3574199997350199694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_26
+      rect:
+        serializedVersion: 2
+        x: 5369
+        y: 1711
+        width: 593
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e8419476ee969320800000000000000
+      internalID: 2564411750469421283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_27
+      rect:
+        serializedVersion: 2
+        x: 6049
+        y: 765
+        width: 156
+        height: 1433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f65cf03acefa36a50800000000000000
+      internalID: 6513242916990731631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_28
+      rect:
+        serializedVersion: 2
+        x: 6311
+        y: 760
+        width: 154
+        height: 1434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7a073bb9406fbe40800000000000000
+      internalID: 5674359925299939962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_29
+      rect:
+        serializedVersion: 2
+        x: 3762
+        y: 1165
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b456efae06aebc70800000000000000
+      internalID: 8988804488288949426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_30
+      rect:
+        serializedVersion: 2
+        x: 4198
+        y: 1165
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc71ed27f03f2b1d0800000000000000
+      internalID: -3336337126250899507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_31
+      rect:
+        serializedVersion: 2
+        x: 4651
+        y: 1169
+        width: 419
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b30933899b45d210800000000000000
+      internalID: 1357073985425703864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_32
+      rect:
+        serializedVersion: 2
+        x: 5183
+        y: 1399
+        width: 622
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc20274e8decca20800000000000000
+      internalID: 3084101040176377010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_33
+      rect:
+        serializedVersion: 2
+        x: 3762
+        y: 717
+        width: 417
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3592b3c190e9715b0800000000000000
+      internalID: -5397671866414716589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_34
+      rect:
+        serializedVersion: 2
+        x: 4198
+        y: 717
+        width: 420
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf3880930cb493430800000000000000
+      internalID: 3763122252607423483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_35
+      rect:
+        serializedVersion: 2
+        x: 4651
+        y: 717
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa87b89a101fb3ee0800000000000000
+      internalID: -1280164679615022929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_36
+      rect:
+        serializedVersion: 2
+        x: 5176
+        y: 1018
+        width: 629
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c410c77895e7d60800000000000000
+      internalID: 7889842035635604514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remastered  4_37
+      rect:
+        serializedVersion: 2
+        x: 5186
+        y: 746
+        width: 625
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9914ee4f9549980800000000000000
+      internalID: -8533096485456078422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1f0a37e870bc3d542b2ca79ffca4cc1e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
