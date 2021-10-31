@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: cf50e813f7a706741be9c2d6e423723a
+guid: 07e52edbd6ff5cc43bfcb9eb118fe839
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1779041790993449031
+    second: waterfall masks  (1)_0
+  - first:
+      213: 4019154810373079546
+    second: waterfall masks  (1)_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +47,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -89,7 +95,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: waterfall masks  (1)_0
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 518
+        width: 867
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7404db8451d60b810800000000000000
+      internalID: 1779041790993449031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall masks  (1)_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 80
+        width: 1011
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af107917108e6c730800000000000000
+      internalID: 4019154810373079546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
