@@ -11044,7 +11044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _joystick: {fileID: 1618503527}
   jumpButton: {fileID: 266413422}
-  _moveSpeed: 10
+  _moveSpeed: 15
   _jumpSpeed: 1.2
   jumpCooldown: 2
   animator: {fileID: 1212202035}
