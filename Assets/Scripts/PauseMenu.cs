@@ -23,11 +23,13 @@ public class PauseMenu : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MenuScene");
+        ReturnToGame();
     }
 
     public void Restart()
     {
+        ReturnToGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
