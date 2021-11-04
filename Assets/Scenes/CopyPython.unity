@@ -10280,7 +10280,6 @@ GameObject:
   - component: {fileID: 1556949755}
   - component: {fileID: 1556949761}
   - component: {fileID: 1556949763}
-  - component: {fileID: 1556949762}
   m_Layer: 0
   m_Name: MainHero
   m_TagString: Untagged
@@ -10445,21 +10444,6 @@ MonoBehaviour:
   _moveSpeed: 5
   _jumpSpeed: 5
   jumpCooldown: 1
---- !u!114 &1556949762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1556949754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23d90382f5849984dac28c4df471d416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  animationLength: 0
-  clip: {fileID: 0}
 --- !u!95 &1556949763
 Animator:
   serializedVersion: 3
