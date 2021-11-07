@@ -24,6 +24,10 @@ public class PointUseItem : MonoBehaviour
     [Header("—сылка на обьект событи€")]
     public Animator animatorEvent;
 
+    //[HideInInspector]
+    public bool isActivePoint = true;
+
+
     ///// <summary>
     ///// возвращает массив ID предметов дл€ использовани€
     ///// </summary>

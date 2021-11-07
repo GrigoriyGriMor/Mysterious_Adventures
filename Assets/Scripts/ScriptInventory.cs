@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,15 +10,21 @@ public class ScriptInventory : MonoBehaviour
     /// управляет инвентарем
     /// </summary>
     [Header("Массив слотов предметов в инвенторе")]
-    [SerializeField]
-    private List<Image> arrayShow;
+    //[SerializeField]
+    public List<Image> arrayShow;
 
     [Header("Массив предметов")]
-   // [SerializeField]
-   // [HideInInspector]
-    public List<GameObject> arrayItems;
+    // [HideInInspector]
+    public List<Item> arrayItems;
 
-    
+    //[HideInInspector]
+    public Sprite defualtImage;
+
+    [HideInInspector]
+    public Image dragImage; // обьект который дрыгаем
+
+    [HideInInspector]
+    public int idSelectedItem = -1; // id выбраннова обьекта в инвентаре
 
     void Start()
     {
@@ -35,11 +40,11 @@ public class ScriptInventory : MonoBehaviour
         {
             if (indexArrayShow < arrayItems.Count)
             {
-                arrayShow[indexArrayShow].GetComponent<Image>().sprite = arrayItems[indexArrayShow].GetComponent<SpriteRenderer>().sprite;
+                arrayShow[indexArrayShow].sprite = arrayItems[indexArrayShow].GetComponent<SpriteRenderer>().sprite;
             }
             else
             {
-                arrayShow[indexArrayShow].GetComponent<Image>().sprite = null;
+                arrayShow[indexArrayShow].sprite = defualtImage;
             }
         }
     }
@@ -52,22 +57,38 @@ public class ScriptInventory : MonoBehaviour
     {
         if (arrayItems.Count < arrayShow.Count)
         {
-            arrayItems.Add(addItem);
+            arrayItems.Add(addItem.GetComponent<Item>());
             ShowSlots();
         }
+
     }
 
 
     /// <summary>
     /// Удаление предмета из инвентаря
     /// </summary>
-    /// <param name="delItem"></param>
-    public void DelItem(GameObject delItem)
+    /// <param name="delItemID"></param>
+    public void DelItem(int delItemID)
     {
-        arrayItems.Remove(delItem);
-        Destroy(delItem);
-        ShowSlots();
+        foreach (Item item in arrayItems)
+        {
+            if (item.id == delItemID)
+            {
+                arrayItems.Remove(item);
+                //Destroy(delItemID);
+                ShowSlots();
+                return;
+            }
+        }
     }
 
-    
+    /// <summary>
+    /// возврат ID выбранного в инвентаре обьекта
+    /// </summary>
+    /// <returns></returns>
+    public int GetIdSelectedItem()   
+    {
+        return idSelectedItem;
+    }
+
 }
