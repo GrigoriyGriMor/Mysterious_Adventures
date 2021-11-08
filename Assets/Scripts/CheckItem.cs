@@ -2,41 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Скрипт вешается на  ГГ
+/// Чекает вещи Item на сцене
+/// </summary>
 public class CheckItem : MonoBehaviour
 {
-    /// <summary>
-    /// Скрипт вешается на  ГГ
-    /// Чекает вещи Item на сцене
-    /// </summary>
-    //[HideInInspector]
+    [HideInInspector]
     public bool isItem;
-    private GameObject currentItem;
+    [HideInInspector]
+    public GameObject currentItem;
+
+    [Header("Дистанция до предмета")]
+    public float distanceToItem;
+
+    
 
     /// <summary>
     /// чекает коллайдер ГГ когда вошел
     /// </summary>
     /// <param name="collision"></param>
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-      //  if (collision.tag == "Item")
-      //  {
-            isItem = true;
-            currentItem = collision.gameObject;
-       // }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //  //  if (collision.tag == "Item")
+    //  //  {
+    //        isItem = true;
+    //        currentItem = collision.gameObject;
+    //   // }
+    //}
 
     /// <summary>
     /// чекает коллайдер ГГ когда вышел
     /// </summary>
     /// <param name="collision"></param>
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-      //  if (collision.tag == "Item")
-      //  {
-            isItem = false;
-            currentItem = null;
-      //  }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //  //  if (collision.tag == "Item")
+    //  //  {
+    //        isItem = false;
+    //        currentItem = null;
+    //  //  }
+    //}
+
+
+
 
     /// <summary>
     /// возвращает true если это предмет
@@ -77,6 +86,24 @@ public class CheckItem : MonoBehaviour
 
         }
         return currentId;
+    }
+
+    /// <summary>
+    /// возврат состояние активности точки для испл предмета
+    /// </summary>
+    /// <returns></returns>
+    public bool GetIsActivePoint()
+    {
+        return currentItem.GetComponent<PointUseItem>().isActivePoint;
+    }
+
+    /// <summary>
+    /// сетим состояние активности точки для испл предмета
+    /// </summary>
+    /// <param name="isActive"></param>
+    public void SetIsActivePoint(bool isActive)
+    {
+         currentItem.GetComponent<PointUseItem>().isActivePoint = isActive;
     }
 
     /// <summary>
