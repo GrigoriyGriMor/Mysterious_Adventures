@@ -84,7 +84,7 @@ public class DragAndDrop : MonoBehaviour
                 {
                     currentImageSlot = imageSlot;
                     ActiveDragAndDropObject();
-                    Debug.Log("Index array " + index);
+                    //Debug.Log("Index array " + index);
                     scriptInventory.idSelectedItem = scriptInventory.arrayItems[index].id;
                     break;
                 }

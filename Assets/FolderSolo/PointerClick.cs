@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
+// скрипт весит на предмете
 public class PointerClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private DragAndDrop dragAndDrop;
