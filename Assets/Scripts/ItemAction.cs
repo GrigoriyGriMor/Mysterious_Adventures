@@ -55,7 +55,7 @@ public class ItemAction : MonoBehaviour
             if (hit.collider.tag == "Item" || hit.collider.tag == "PointUseItem" || hit.collider.tag == "Trigger")
             {
                 float dist = Vector3.Distance(hit.collider.gameObject.transform.position, checkItem.gameObject.transform.position);
-                Debug.Log(hit.collider.gameObject.name + " dist " + dist);
+               // Debug.Log(hit.collider.gameObject.name + " dist " + dist);
 
                 if (dist < checkItem.distanceToItem)
                 {
@@ -108,7 +108,7 @@ public class ItemAction : MonoBehaviour
     private void TakeItem()
     {
 
-        Debug.Log("TakeItem");
+       // Debug.Log("TakeItem");
         getItem = checkItem.GetItem();
 
         if (checkItem.GetIdItem() == 10)
@@ -144,7 +144,7 @@ public class ItemAction : MonoBehaviour
     private void ActionPointUseItem()
     {
 
-        Debug.Log("PointUseItem");
+        //Debug.Log("PointUseItem");
 
         List<int> getIDPointUseItem = checkItem.GetIDPointUseItem();
 
@@ -196,7 +196,7 @@ public class ItemAction : MonoBehaviour
     {
         if (animator)
         {
-            animator.SetTrigger("Selection");  // Запускаем анимацию
+            animator.SetTrigger("Selection");  // Запускаем анимацию перса
         }
         checkItem.GetAnimatorEvent().SetTrigger("Activate");
         isCanAction = true;
