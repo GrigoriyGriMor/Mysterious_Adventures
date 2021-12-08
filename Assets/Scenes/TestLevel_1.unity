@@ -635,7 +635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &66427121
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1180,7 +1180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &151649769
 Transform:
   m_ObjectHideFlags: 0
@@ -1339,7 +1339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &164163559
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3168,7 +3168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &460040593
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6473,7 +6473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1113423267
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6910,7 +6910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1202564183
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7539,7 +7539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1298146519
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8740,7 +8740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1490324475
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11080,6 +11080,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 4495251110596146062, guid: 8a72658238e6f1841952d8ae67c45ac8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4495251110607197145, guid: 8a72658238e6f1841952d8ae67c45ac8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11375,7 +11379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2033695856
 SpriteRenderer:
   m_ObjectHideFlags: 0
