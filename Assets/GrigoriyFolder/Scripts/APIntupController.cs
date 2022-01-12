@@ -76,7 +76,7 @@ public class APIntupController : MonoBehaviour
         yield return new WaitForSeconds(timeForObjInfoReqwest);
 
 #if UNITY_ANDROID
-        clickPos = Mouse.current.position.ReadValue();
+        clickPos = Touchscreen.current.position.ReadValue();
 #else
         clickPos = Mouse.current.position.ReadValue();
 #endif
