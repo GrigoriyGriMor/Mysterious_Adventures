@@ -38,7 +38,7 @@ public class APIntupController : MonoBehaviour
     {
 
 
-#if UNUTY_ANDROID
+#if UNITY_ANDROID
         clickPos = Touchscreen.current.position.ReadValue();
         clickVisual.gameObject.GetComponent<RectTransform>().position = clickPos;
         clickVisual.SetTrigger("Start");
@@ -75,8 +75,11 @@ public class APIntupController : MonoBehaviour
     {
         yield return new WaitForSeconds(timeForObjInfoReqwest);
 
+#if UNITY_ANDROID
         clickPos = Mouse.current.position.ReadValue();
-
+#else
+        clickPos = Mouse.current.position.ReadValue();
+#endif
         RaycastHit2D hit;
         hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(clickPos), Vector2.zero);
 
