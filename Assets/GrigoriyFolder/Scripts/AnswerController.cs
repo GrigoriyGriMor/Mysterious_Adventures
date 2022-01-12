@@ -17,6 +17,17 @@ public class AnswerController : MonoBehaviour
         }
     }
 
+    public void OnReuestObjInfo(APPlayerController player)
+    {
+            int textR = UnityEngine.Random.Range(0, textAnswer.Length);
+            int audioR = UnityEngine.Random.Range(0, audioAnswer.Length);
+
+            if (audioAnswer.Length != 0 && audioAnswer[audioR] != null)
+                player.gameObject.GetComponent<APPlayerController>().AnswerConnector(textAnswer[textR], audioAnswer[audioR]);
+            else
+                player.gameObject.GetComponent<APPlayerController>().AnswerConnector(textAnswer[textR]);
+    }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<APPlayerController>())
@@ -30,4 +41,18 @@ public class AnswerController : MonoBehaviour
                 collision.gameObject.GetComponent<APPlayerController>().AnswerConnector(textAnswer[textR]);
         }
     }
+
+   /* public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<APPlayerController>())
+        {
+            int textR = UnityEngine.Random.Range(0, textAnswer.Length);
+            int audioR = UnityEngine.Random.Range(0, audioAnswer.Length);
+
+            if (audioAnswer.Length != 0 && audioAnswer[audioR] != null)
+                collision.GetComponent<APPlayerController>().AnswerConnector(textAnswer[textR], audioAnswer[audioR]);
+            else
+                collision.GetComponent<APPlayerController>().AnswerConnector(textAnswer[textR]);
+        }
+    }*/
 }

@@ -11,15 +11,27 @@ public class APIntupController : MonoBehaviour
 
     private bool drag = false;
 
+    [SerializeField] private float timeForObjInfoReqwest = 1;
+    private Coroutine infoCoroutine;
+
     public void InputActive()
     {
         drag = true;
-        ClickData();
+
+        if (infoCoroutine != null)
+            StopCoroutine(infoCoroutine);
+
+        infoCoroutine = StartCoroutine(InfoTimer());
     }
 
     public void InputDeactive()
     {
         drag = false;
+
+        ClickData();
+
+        if (infoCoroutine != null)
+            StopCoroutine(infoCoroutine);
     }
 
     private void ClickData()
@@ -31,25 +43,27 @@ public class APIntupController : MonoBehaviour
         clickVisual.gameObject.GetComponent<RectTransform>().position = clickPos;
         clickVisual.SetTrigger("Start");
 
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(clickPos), out hit))
-            player.SetNewMoveTarget(hit.point);
+        RaycastHit2D hit;
+        hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(clickPos), Vector2.zero);
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.GetComponent<APInteractbleObjController>() && hit.collider.GetComponent<APInteractbleObjController>().needUse)
+                player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APInteractbleObjController>());
+            else
+                player.SetNewMoveTarget(hit.point);
+        }
 #else
         clickPos = Mouse.current.position.ReadValue();
         clickVisual.gameObject.GetComponent<RectTransform>().position = clickPos;
         clickVisual.SetTrigger("Start");
-
-        /* RaycastHit hit;
-         Physics.Raycast(Camera.main.ScreenPointToRay(clickPos), out hit);*/
 
         RaycastHit2D hit;
         hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(clickPos), Vector2.zero);
 
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.name);
-
-            if (hit.collider.GetComponent<APInteractbleObjController>())
+            if (hit.collider.GetComponent<APInteractbleObjController>() && hit.collider.GetComponent<APInteractbleObjController>().needUse)
                 player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APInteractbleObjController>());
             else
                 player.SetNewMoveTarget(hit.point);
@@ -57,10 +71,16 @@ public class APIntupController : MonoBehaviour
 #endif
     }
 
+    private IEnumerator InfoTimer()
+    {
+        yield return new WaitForSeconds(timeForObjInfoReqwest);
 
+        clickPos = Mouse.current.position.ReadValue();
 
+        RaycastHit2D hit;
+        hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(clickPos), Vector2.zero);
 
-
-
-
+        if (hit.collider != null && hit.collider.GetComponent<AnswerController>())
+            hit.collider.GetComponent<AnswerController>().OnReuestObjInfo(player);
+    }
 }

@@ -10,6 +10,10 @@ public class APPlayerController : MonoBehaviour
     [Header("Панель подсказки")]
     [SerializeField] private Image answerUIPanel;
     [SerializeField] private Text answerText;
+    [Header("Регулятор размерности подсказки")]
+    [SerializeField] private int oneLetterParcer = 30;
+    [SerializeField] private int maxLetterInOneLine = 20;
+    private Vector2 panelStartSize;
 
     [Header("Время показа панели подсказки")]
     [SerializeField] private float answerTextVisibleTime;
@@ -19,10 +23,19 @@ public class APPlayerController : MonoBehaviour
     [SerializeField] private float speed = 1;
     private bool canMove = false;
 
+    private Rigidbody2D _rb;
+
+    [SerializeField] private AudioClip backgroundClip;
+
     private void Start()
     {
+        _rb = gameObject.GetComponent<Rigidbody2D>();
+        panelStartSize = answerUIPanel.rectTransform.sizeDelta;
+
         answerUIPanel.gameObject.SetActive(false);
         answerUIPanel.color = new Color(answerUIPanel.color.r, answerUIPanel.color.g, answerUIPanel.color.b, 0);
+
+        if (backgroundClip != null && SoundManagerAllControll.Instance) SoundManagerAllControll.Instance.BackgroundClipPlay(backgroundClip);
     }
 
     private Coroutine moveCorouine;
@@ -49,7 +62,7 @@ public class APPlayerController : MonoBehaviour
         canMove = true;
         playerVisual.SetBool("Run", true);
 
-        while (canMove && Vector2.Distance(transform.position, target) > 0.05f)
+        while (canMove && Mathf.Abs(transform.position.x - target.x) > 0.05f)
         {
             if (playerVisual.transform.localScale.x > 0)
                 transform.position = new Vector2((transform.position.x + speed * Time.deltaTime), transform.position.y);
@@ -63,7 +76,8 @@ public class APPlayerController : MonoBehaviour
         playerVisual.SetBool("Run", false);
 
         yield return new WaitForFixedUpdate();
-        if (interactiveButton != null) interactiveButton.UseObject();
+        if (interactiveButton != null)
+            playerVisual.SetTrigger(interactiveButton.UseObject());
     }
     #endregion
 
@@ -73,6 +87,12 @@ public class APPlayerController : MonoBehaviour
     {
         if (_text != "" && !answerUIPanel.gameObject.activeInHierarchy) 
         {
+            float sizeX = Mathf.Clamp(_text.Length, 5, maxLetterInOneLine) * oneLetterParcer;
+            float sizeY = panelStartSize.y + ((Mathf.FloorToInt(_text.Length / maxLetterInOneLine) + 1) * oneLetterParcer);
+
+            answerUIPanel.rectTransform.sizeDelta = new Vector2(sizeX, sizeY);
+            answerText.rectTransform.sizeDelta = new Vector2(sizeX - oneLetterParcer, sizeY);
+
             answerText.text = _text;
             StartCoroutine(AnswerSendActivate());
         }
@@ -101,6 +121,11 @@ public class APPlayerController : MonoBehaviour
     }
     #endregion
 
+    private void Update()
+    {
+        playerVisual.SetFloat("VelocityY", _rb.velocity.y);
+    }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<DangerObstacle>())
@@ -112,7 +137,15 @@ public class APPlayerController : MonoBehaviour
             canMove = false;
             playerVisual.SetBool("Run", false);
         }
+    }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<DangerObstacle>())
+            StartCoroutine(Die());
+
+        if (collision.GetComponent<APInteractbleObjController>() && !collision.GetComponent<APInteractbleObjController>().needUse)
+            collision.GetComponent<APInteractbleObjController>().UseObject();
     }
 
     private IEnumerator Die()
@@ -120,5 +153,8 @@ public class APPlayerController : MonoBehaviour
         canMove = false;
         playerVisual.SetTrigger("Dead");
         yield return new WaitForEndOfFrame();
+
+        yield return new WaitForSeconds(2);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 }

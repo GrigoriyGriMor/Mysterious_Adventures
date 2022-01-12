@@ -17,9 +17,16 @@ public class APInteractbleObjController : MonoBehaviour
     [SerializeField] private bool oneShot = false;
     private bool oneShotActive = false;
 
-    public void UseObject()
+    public bool needUse = false;
+
+    [Header("Триггер Анимации взаимодействий")]
+    [SerializeField] private string triggersForAnim = "";
+
+    public string UseObject()
     {
-        StartCoroutine(UseObj());    
+        StartCoroutine(UseObj());
+
+        return triggersForAnim;
     }
 
 
