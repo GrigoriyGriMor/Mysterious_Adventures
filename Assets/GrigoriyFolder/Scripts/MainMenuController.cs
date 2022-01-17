@@ -36,7 +36,7 @@ public class MainMenuController : MonoBehaviour
 
     private IEnumerator Initialize()
     {
-        lastPlayedLevelID = SaveController.Instance.GetLastPlayedLevelNumber();
+        lastPlayedLevelID = SaveController.Instance.LoadlevelId();
 
         mainUIPanel.SetActive(true);
         logUIPanel.SetActive(true);

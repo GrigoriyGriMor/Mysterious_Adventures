@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Adventure (Grigoriy).unity
     guid: 6cd2881c401ebff4daea38983f7a1c95
+  - enabled: 1
+    path: Assets/Scenes/Adventure (Grigoriy) 2.unity
+    guid: 5b81efce62897934392511d7b55bad84
+  - enabled: 1
+    path: Assets/Scenes/Adventure (Grigoriy) 3.unity
+    guid: 1e8a23f8b99cb30488d57b5abd53c847
   m_configObjects: {}

@@ -7,7 +7,7 @@ public class SaveController : MonoBehaviour
 {
     private static SaveController instance;
     public static SaveController Instance => instance;
-    private SaveData _data;
+    private SaveData _data = new SaveData();
 
     private void Awake()
     {
@@ -20,16 +20,26 @@ public class SaveController : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("DataSave"))
             _data = JsonUtility.FromJson<SaveData>(PlayerPrefs.GetString("DataSave"));
+        else
+        {
+            _data.LevelId = -1;
+            _data.PlayerPosX = 0;
+            _data.PlayerPosY = 0;
+            _data.InventoryItems = new string[0];
+            _data.ObjState = new int[0];
+
+            PlayerPrefs.SetString("DataSave", JsonUtility.ToJson(_data));
+        }
     }
 
     // Функция загружает все данные в класс
-    public void SaveInfo(int _levelId, Vector2 playerPos, string[] InventoryItems, int[] ObjState)
+    public void SaveInfo(SaveData newData)
     {
-        _data.LevelId = _levelId;
-        _data.PlayerPosX = playerPos.x;
-        _data.PlayerPosY = playerPos.y;
-        _data.InventoryItems = InventoryItems;
-        _data.ObjState = ObjState;
+        _data.LevelId = newData.LevelId;
+        _data.PlayerPosX = newData.PlayerPosX;
+        _data.PlayerPosY = newData.PlayerPosY;
+        _data.InventoryItems = newData.InventoryItems;
+        _data.ObjState = newData.ObjState;
 
         PlayerPrefs.SetString("DataSave", JsonUtility.ToJson(_data));
     }

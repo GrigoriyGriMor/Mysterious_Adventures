@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class APInteractbleObjController : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class APInteractbleObjController : MonoBehaviour
 
     [Header("Триггер Анимации взаимодействий")]
     [SerializeField] private string triggersForAnim = "";
+
+    [Header("Точка выхода из уровня")]
+    [SerializeField] private bool endLevelPoint;
+
+    public UnityEvent activation = new UnityEvent();
 
     public string UseObject()
     {
@@ -48,6 +54,8 @@ public class APInteractbleObjController : MonoBehaviour
 
             if (particle != null)
                 particle.Play();
+
+            activation.Invoke();
         }
         else
         {
@@ -61,6 +69,14 @@ public class APInteractbleObjController : MonoBehaviour
 
             if (particle != null)
                 particle.Play();
+
+            activation.Invoke();
+        }
+
+        if (endLevelPoint)
+        {
+            yield return new WaitForSeconds(1);
+            GameStateController.Instance.GameEnd(true);
         }
     }
 }

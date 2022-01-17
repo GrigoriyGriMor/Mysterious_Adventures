@@ -43,6 +43,8 @@ public class APPlayerController : MonoBehaviour
     #region Move
     public void SetNewMoveTarget(Vector2 targetPos, APInteractbleObjController interactiveButton = null)
     {
+        if (!GameStateController.Instance.gameIsPlayed) return;
+
         target = new Vector2(targetPos.x, transform.position.y);
 
         if (transform.position.x > target.x && playerVisual.transform.localScale.x > 0)
@@ -123,11 +125,19 @@ public class APPlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!GameStateController.Instance.gameIsPlayed)
+        {
+            if (moveCorouine != null) StopCoroutine(moveCorouine);
+            return;
+        } 
+
         playerVisual.SetFloat("VelocityY", _rb.velocity.y);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!GameStateController.Instance.gameIsPlayed) return;
+
         if (collision.gameObject.GetComponent<DangerObstacle>())
             StartCoroutine(Die());
 
@@ -141,6 +151,8 @@ public class APPlayerController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!GameStateController.Instance.gameIsPlayed) return;
+
         if (collision.GetComponent<DangerObstacle>())
             StartCoroutine(Die());
 
@@ -152,9 +164,8 @@ public class APPlayerController : MonoBehaviour
     {
         canMove = false;
         playerVisual.SetTrigger("Dead");
-        yield return new WaitForEndOfFrame();
 
-        yield return new WaitForSeconds(2);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        yield return new WaitForSeconds(1);
+        GameStateController.Instance.GameEnd(false);
     }
 }

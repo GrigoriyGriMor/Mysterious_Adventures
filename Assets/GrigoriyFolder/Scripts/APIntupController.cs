@@ -16,6 +16,8 @@ public class APIntupController : MonoBehaviour
 
     public void InputActive()
     {
+        if (!GameStateController.Instance.gameIsPlayed) return;
+
         drag = true;
 
         if (infoCoroutine != null)
@@ -26,6 +28,8 @@ public class APIntupController : MonoBehaviour
 
     public void InputDeactive()
     {
+        if (!GameStateController.Instance.gameIsPlayed) return;
+
         drag = false;
 
         ClickData();
@@ -36,8 +40,6 @@ public class APIntupController : MonoBehaviour
 
     private void ClickData()
     {
-
-
 #if UNITY_ANDROID
         clickPos = Touchscreen.current.position.ReadValue();
         clickVisual.gameObject.GetComponent<RectTransform>().position = clickPos;
