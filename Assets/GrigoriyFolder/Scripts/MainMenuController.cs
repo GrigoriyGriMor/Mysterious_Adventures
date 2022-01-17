@@ -43,7 +43,7 @@ public class MainMenuController : MonoBehaviour
         CreatersInfoUIPanel.SetActive(true);
         yield return new WaitForFixedUpdate();
 
-        if (lastPlayedLevelID != -1)
+        if (lastPlayedLevelID != -1)//≈сли игрок еще не начинал играть и нет сохранений, то не показываем ему кнопку "ѕродолжить", а если он уже играл, о показываем
         {
             B_Continue.gameObject.SetActive(true);
             B_Continue.onClick.AddListener(() => SceneManager.LoadScene(lastPlayedLevelID));

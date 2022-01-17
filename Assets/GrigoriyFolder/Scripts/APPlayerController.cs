@@ -41,7 +41,7 @@ public class APPlayerController : MonoBehaviour
     private Coroutine moveCorouine;
     //функция приема точки куда должен идти персонаж
     #region Move
-    public void SetNewMoveTarget(Vector2 targetPos, APInteractbleObjController interactiveButton = null)
+    public void SetNewMoveTarget(Vector2 targetPos, MonoBehaviour interactiveButton = null)
     {
         if (!GameStateController.Instance.gameIsPlayed) return;
 
@@ -59,7 +59,7 @@ public class APPlayerController : MonoBehaviour
         moveCorouine = StartCoroutine(Move(interactiveButton));
     }
 
-    private IEnumerator Move(APInteractbleObjController interactiveButton = null)
+    private IEnumerator Move(MonoBehaviour interactiveButton = null)
     {
         canMove = true;
         playerVisual.SetBool("Run", true);
@@ -79,7 +79,15 @@ public class APPlayerController : MonoBehaviour
 
         yield return new WaitForFixedUpdate();
         if (interactiveButton != null)
-            playerVisual.SetTrigger(interactiveButton.UseObject());
+        {
+            if (interactiveButton is APInteractbleObjController _classIntObj)
+                playerVisual.SetTrigger(_classIntObj.UseObject());
+            else
+                if (interactiveButton is APItemController _classItem)
+            { 
+            
+            }
+        }
     }
     #endregion
 

@@ -40,7 +40,7 @@ public class APIntupController : MonoBehaviour
 
     private void ClickData()
     {
-#if UNITY_ANDROID
+#if UNITY_AN1DROID
         clickPos = Touchscreen.current.position.ReadValue();
         clickVisual.gameObject.GetComponent<RectTransform>().position = clickPos;
         clickVisual.SetTrigger("Start");
@@ -68,7 +68,12 @@ public class APIntupController : MonoBehaviour
             if (hit.collider.GetComponent<APInteractbleObjController>() && hit.collider.GetComponent<APInteractbleObjController>().needUse)
                 player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APInteractbleObjController>());
             else
-                player.SetNewMoveTarget(hit.point);
+            {
+                if (hit.collider.GetComponent<APItemController>())
+                    player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APItemController>());
+                else
+                    player.SetNewMoveTarget(hit.point);
+            }
         }
 #endif
     }
@@ -77,7 +82,7 @@ public class APIntupController : MonoBehaviour
     {
         yield return new WaitForSeconds(timeForObjInfoReqwest);
 
-#if UNITY_ANDROID
+#if UNITY_AND1ROID
         clickPos = Touchscreen.current.position.ReadValue();
 #else
         clickPos = Mouse.current.position.ReadValue();

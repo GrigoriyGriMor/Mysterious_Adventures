@@ -5,6 +5,10 @@ using UnityEngine.Events;
 
 public class APInteractbleObjController : MonoBehaviour
 {
+    [Header("Активация через итем?")]
+    [SerializeField] private bool NeedItem = false;
+    [SerializeField] private int itemID = 0;
+
     [Header("Анимация Рычага")]
     [SerializeField] private Animator objAnim;
 
@@ -23,14 +27,22 @@ public class APInteractbleObjController : MonoBehaviour
     [Header("Триггер Анимации взаимодействий")]
     [SerializeField] private string triggersForAnim = "";
 
-    [Header("Точка выхода из уровня")]
+    [Header("Точка выхода из уровня?")]
     [SerializeField] private bool endLevelPoint;
 
     public UnityEvent activation = new UnityEvent();
 
-    public string UseObject()
+    public string UseObject()//если мы отправляем запрос без данных, то используется логика этой функкции
     {
         StartCoroutine(UseObj());
+
+        return triggersForAnim;
+    }
+
+    public string UseObject(int _itemID)//если мы отправляем запрос с данными
+    {
+        if (_itemID == itemID)
+            StartCoroutine(UseObj());
 
         return triggersForAnim;
     }

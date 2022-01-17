@@ -22,11 +22,11 @@ public class SaveController : MonoBehaviour
             _data = JsonUtility.FromJson<SaveData>(PlayerPrefs.GetString("DataSave"));
         else
         {
-            _data.LevelId = -1;
-            _data.PlayerPosX = 0;
-            _data.PlayerPosY = 0;
-            _data.InventoryItems = new string[0];
-            _data.ObjState = new int[0];
+            _data.LevelId = -1;//ID уровня
+            _data.PlayerPosX = 0;//Позиция игрока по Х
+            _data.PlayerPosY = 0;//Позиция игрока по Y
+            _data.InventoryItems = new string[0];//Название итема в инвентаре привязанные к ID в массиве
+            _data.ObjState = new int[0];//состояние интерактивного объекта: 0 - деактивирован, 1 - активирован
 
             PlayerPrefs.SetString("DataSave", JsonUtility.ToJson(_data));
         }
@@ -67,7 +67,7 @@ public class SaveController : MonoBehaviour
     }
 }
 
-// Тут сохраняются все данные
+// Класс в котором инициилизируются все данные, которые нам нужны конкретно в нашем проекте
 [Serializable]
 public class SaveData 
 {
@@ -77,3 +77,19 @@ public class SaveData
     public string[] InventoryItems;
     public int[] ObjState;
 }
+
+//ПРИМЕР ВЫЗОВА СОХРАНЕНИЯ ИЗ ДРУГОГО КЛАССА
+/*     
+ *  public void SaveInitialization()
+    {
+        SaveData _data = new SaveData();
+        _data.LevelId = SceneManager.GetActiveScene().buildIndex;
+        _data.ObjState = LevelController.Instance.GetInteractiveObjState();
+        Vector2 playerPos = LevelController.Instance.GetPlayerPos();
+        _data.PlayerPosX = playerPos.x;
+        _data.PlayerPosY = playerPos.y;
+        _data.InventoryItems = new string[0];
+
+        SaveController.Instance.SaveInfo(_data);
+    }
+*/
