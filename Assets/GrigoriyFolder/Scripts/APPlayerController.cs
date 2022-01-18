@@ -84,9 +84,7 @@ public class APPlayerController : MonoBehaviour
                 playerVisual.SetTrigger(_classIntObj.UseObject());
             else
                 if (interactiveButton is APItemController _classItem)
-            { 
-            
-            }
+                playerVisual.SetTrigger(_classItem.UseObject());
         }
     }
     #endregion

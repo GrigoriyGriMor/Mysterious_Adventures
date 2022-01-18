@@ -25,7 +25,7 @@ public class SaveController : MonoBehaviour
             _data.LevelId = -1;//ID уровня
             _data.PlayerPosX = 0;//Позиция игрока по Х
             _data.PlayerPosY = 0;//Позиция игрока по Y
-            _data.InventoryItems = new string[0];//Название итема в инвентаре привязанные к ID в массиве
+            _data.InventoryItemsID = new int[0];//Название итема в инвентаре привязанные к ID в массиве
             _data.ObjState = new int[0];//состояние интерактивного объекта: 0 - деактивирован, 1 - активирован
 
             PlayerPrefs.SetString("DataSave", JsonUtility.ToJson(_data));
@@ -38,7 +38,7 @@ public class SaveController : MonoBehaviour
         _data.LevelId = newData.LevelId;
         _data.PlayerPosX = newData.PlayerPosX;
         _data.PlayerPosY = newData.PlayerPosY;
-        _data.InventoryItems = newData.InventoryItems;
+        _data.InventoryItemsID = newData.InventoryItemsID;
         _data.ObjState = newData.ObjState;
 
         PlayerPrefs.SetString("DataSave", JsonUtility.ToJson(_data));
@@ -56,9 +56,9 @@ public class SaveController : MonoBehaviour
         return playerPos;
     }
 
-    public string[] LoadInventoryItems()
+    public int[] LoadInventoryItems()
     {
-        return _data.InventoryItems;
+        return _data.InventoryItemsID;
     }
 
     public int[] LoadObjState()
@@ -74,7 +74,7 @@ public class SaveData
     public int LevelId;
     public float PlayerPosX;
     public float PlayerPosY;
-    public string[] InventoryItems;
+    public int[] InventoryItemsID;
     public int[] ObjState;
 }
 

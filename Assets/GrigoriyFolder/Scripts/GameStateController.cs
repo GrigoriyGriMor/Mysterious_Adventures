@@ -55,7 +55,7 @@ public class GameStateController : MonoBehaviour
     //Полностью перезагружает данный уровень
     public void RestartAllLevel()
     {
-        SaveData _data = new SaveData();
+        SaveData _data = new SaveData();//при рестарте записываем в сохранение пустой класс
         _data.LevelId = -1;
         SaveController.Instance.SaveInfo(_data);
 
@@ -103,7 +103,7 @@ public class GameStateController : MonoBehaviour
         Vector2 playerPos = LevelController.Instance.GetPlayerPos();
         _data.PlayerPosX = playerPos.x;
         _data.PlayerPosY = playerPos.y;
-        _data.InventoryItems = new string[0];
+        _data.InventoryItemsID = APInventoryController.Instance.GetInventoryItemIDs();//
 
         SaveController.Instance.SaveInfo(_data);
     }

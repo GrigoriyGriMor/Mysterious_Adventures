@@ -5,9 +5,9 @@ using UnityEngine.Events;
 
 public class APInteractbleObjController : MonoBehaviour
 {
-    [Header("Активация через итем?")]
+    [Header("Нужен ли итем?")]
     [SerializeField] private bool NeedItem = false;
-    [SerializeField] private int itemID = 0;
+    [SerializeField] private int needItemID = 0;
 
     [Header("Анимация Рычага")]
     [SerializeField] private Animator objAnim;
@@ -34,19 +34,20 @@ public class APInteractbleObjController : MonoBehaviour
 
     public string UseObject()//если мы отправляем запрос без данных, то используется логика этой функкции
     {
+        if (NeedItem) return "";
+
         StartCoroutine(UseObj());
 
         return triggersForAnim;
     }
 
-    public string UseObject(int _itemID)//если мы отправляем запрос с данными
+    public string UseObject(int itemID)//если мы отправляем запрос c данными, то используется логика этой функкции
     {
-        if (_itemID == itemID)
+        if (itemID == needItemID)
             StartCoroutine(UseObj());
 
         return triggersForAnim;
     }
-
 
     private IEnumerator UseObj()
     {
