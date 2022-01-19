@@ -51,7 +51,13 @@ public class MainMenuController : MonoBehaviour
         else
             B_Continue.gameObject.SetActive(false);
 
-        B_NewGame.onClick.AddListener(() => SceneManager.LoadScene(firstLevelID));
+        B_NewGame.onClick.AddListener(() =>
+        {
+            SaveData _data = new SaveData();
+            _data.LevelId = -1;
+            SaveController.Instance.SaveInfo(_data);
+            SceneManager.LoadScene(firstLevelID);
+        });
 
         B_LogPanel.onClick.AddListener(() =>
         {

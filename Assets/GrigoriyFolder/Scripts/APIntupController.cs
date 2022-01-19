@@ -5,7 +5,10 @@ using UnityEngine.InputSystem;
 
 public class APIntupController : MonoBehaviour
 {
-    [SerializeField] private APPlayerController player;
+    private static APIntupController instance;
+    public static APIntupController Instance => instance;
+
+    public APPlayerController player;
     [SerializeField] private Animator clickVisual;
     private Vector2 clickPos;
 
@@ -14,8 +17,21 @@ public class APIntupController : MonoBehaviour
     [SerializeField] private float timeForObjInfoReqwest = 1;
     private Coroutine infoCoroutine;
 
+    private InventoryCard itemInHand;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public void InputActive()
     {
+        if (itemInHand != null)
+        {
+            itemInHand.CancelItemUse();
+            itemInHand = null;
+        }
+
         if (!GameStateController.Instance.gameIsPlayed) return;
 
         drag = true;
@@ -32,6 +48,19 @@ public class APIntupController : MonoBehaviour
 
         drag = false;
 
+        ClickData();
+
+        if (infoCoroutine != null)
+            StopCoroutine(infoCoroutine);
+    }
+
+    public void InputDeactive(InventoryCard _itemInHand = null)
+    {
+        if (!GameStateController.Instance.gameIsPlayed) return;
+
+        drag = false;
+
+        if (itemInHand == null) itemInHand = _itemInHand;
         ClickData();
 
         if (infoCoroutine != null)
@@ -62,14 +91,42 @@ public class APIntupController : MonoBehaviour
 
         RaycastHit2D hit;
         hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(clickPos), Vector2.zero);
-
+      
         if (hit.collider != null)
         {
-            if (hit.collider.GetComponent<APInteractbleObjController>() && hit.collider.GetComponent<APInteractbleObjController>().needUse)
-                player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APInteractbleObjController>());
+            if (hit.collider.GetComponent<APInteractbleObjController>() && hit.collider.GetComponent<APInteractbleObjController>().needUse)//если ИО
+            {
+                if (itemInHand != null)// если в руке есть итем
+                {
+                    if (hit.collider.GetComponent<APInteractbleObjController>().NeedItem(itemInHand))// нужен ли итем для активации ИО? если да, то соответствуют ли ID
+                    {
+                        player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APInteractbleObjController>());
+                        itemInHand.CorrectItemUse();
+                    }
+                    else
+                    {
+                        itemInHand.CancelItemUse();
+                        itemInHand = null;
+                    }
+                }
+                else//если в руке нет итема
+                {
+                    if (!hit.collider.GetComponent<APInteractbleObjController>().NeedItem())//для активации этого ИО точно не нужен итем?
+                        player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APInteractbleObjController>());
+                    else
+                        player.SetNewMoveTarget(hit.point);
+                }
+            }
             else
             {
-                if (hit.collider.GetComponent<APItemController>())
+                if (itemInHand != null)
+                {
+                    itemInHand.CancelItemUse();
+                    itemInHand = null;
+                    return;
+                }
+
+                if (hit.collider.GetComponent<APItemController>())//если итем контроллер
                     player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APItemController>());
                 else
                     player.SetNewMoveTarget(hit.point);

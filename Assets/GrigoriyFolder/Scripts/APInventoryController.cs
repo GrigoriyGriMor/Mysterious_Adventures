@@ -55,10 +55,9 @@ public class APInventoryController : MonoBehaviour
 
         rt_Content.sizeDelta = new Vector2(0, rt_Content.sizeDelta.y);
         for (int i = 0; i < newArray.Length; i++)
-        {
             itemIDs.Add(newArray[i]);
-            StartCoroutine(SetContentInventory());
-        }    
+
+        StartCoroutine(SetContentInventory());
     }
 
     private IEnumerator SetContentInventory()
@@ -72,7 +71,7 @@ public class APInventoryController : MonoBehaviour
     private void SetNewCard(int id)
     {
         GameObject go = Instantiate(InventoryCardPrefab, rt_Content);
-        go.GetComponent<InventoryCard>().SetData(id);
+        go.GetComponent<InventoryCard>().SetData(id, moveItemImage);
 
         float cardWidth = go.GetComponent<RectTransform>().sizeDelta.x;
 
@@ -120,6 +119,9 @@ public class APInventoryController : MonoBehaviour
             moveItemImage.sizeDelta = Vector2.Lerp(moveItemImage.sizeDelta, Vector2.zero, 0.1f);
             yield return new WaitForFixedUpdate();
         }
+
+        moveItemImage.sizeDelta = startSizeMoveImage;
+        moveItemImage.gameObject.SetActive(false);
 
         itemIDs.Add(itemID);
         SetNewCard(itemID);

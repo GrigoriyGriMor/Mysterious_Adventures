@@ -12,6 +12,9 @@ public class LevelController : MonoBehaviour
     [Header("Интерактивные объекты на сцене")]
     [SerializeField] private SceneInteractbleObj[] interactiveObj = new SceneInteractbleObj[0];
 
+    [Header("Подбираемые предметы на сцене")]
+    [SerializeField] private SceneItems[] sceneItems = new SceneItems[0];
+
     [Header("PlayerGameObject")]
     [SerializeField] private GameObject player;
 
@@ -52,6 +55,15 @@ public class LevelController : MonoBehaviour
                 interactiveObj[number].state = 1;
             });  
         }
+
+        int[] _inventoryItems = SaveController.Instance.LoadInventoryItems();
+        for (int j = 0; j < sceneItems.Length; j++)
+            for (int x = 0; x < _inventoryItems.Length; x++)
+                if (sceneItems[j].ID == _inventoryItems[x])
+                {
+                    sceneItems[j]._object.SetActive(false);
+                    break;
+                }
     }
 
     public int[] GetInteractiveObjState()
@@ -75,5 +87,12 @@ public class SceneInteractbleObj
 {
     public APInteractbleObjController _object;
     public int state;
+}
+
+[Serializable]
+public class SceneItems
+{
+    public GameObject _object;
+    public int ID;
 }
 

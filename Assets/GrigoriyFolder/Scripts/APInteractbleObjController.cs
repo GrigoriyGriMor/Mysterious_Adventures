@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class APInteractbleObjController : MonoBehaviour
 {
     [Header("Нужен ли итем?")]
-    [SerializeField] private bool NeedItem = false;
+    public bool needItem = false;
     [SerializeField] private int needItemID = 0;
 
     [Header("Анимация Рычага")]
@@ -32,21 +32,40 @@ public class APInteractbleObjController : MonoBehaviour
 
     public UnityEvent activation = new UnityEvent();
 
+    private InventoryCard itemBeLoad = null;
+
     public string UseObject()//если мы отправляем запрос без данных, то используется логика этой функкции
     {
-        if (NeedItem) return "";
+        if (needItem)
+        {
+            if (itemBeLoad != null)
+            {
+                itemBeLoad.CompliteItemUse();
+                itemBeLoad = null;
+            }
+            else
+                return triggersForAnim;
+        }
 
         StartCoroutine(UseObj());
 
         return triggersForAnim;
     }
 
-    public string UseObject(int itemID)//если мы отправляем запрос c данными, то используется логика этой функкции
+    public bool NeedItem(InventoryCard itemID = null)
     {
-        if (itemID == needItemID)
-            StartCoroutine(UseObj());
+        if (needItem && itemID.GetID() == needItemID)
+        {
+            itemBeLoad = itemID;
+            itemBeLoad.cancelUse.AddListener(() =>
+            {
+                itemBeLoad.cancelUse.RemoveAllListeners();
+                itemBeLoad = null;
+            });
+            return true;
+        }       
 
-        return triggersForAnim;
+        return false;
     }
 
     private IEnumerator UseObj()
