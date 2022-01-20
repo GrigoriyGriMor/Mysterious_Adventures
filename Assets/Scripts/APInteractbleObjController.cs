@@ -54,7 +54,7 @@ public class APInteractbleObjController : MonoBehaviour
 
     public bool NeedItem(InventoryCard itemID = null)
     {
-        if (needItem && itemID.GetID() == needItemID)
+        if (needItem && (itemID != null && itemID.GetID() == needItemID))
         {
             itemBeLoad = itemID;
             itemBeLoad.cancelUse.AddListener(() =>

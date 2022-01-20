@@ -74,8 +74,8 @@ public class SaveData
     public int LevelId;
     public float PlayerPosX;
     public float PlayerPosY;
-    public int[] InventoryItemsID;
-    public int[] ObjState;
+    public int[] InventoryItemsID = new int[0];
+    public int[] ObjState = new int[0];
 }
 
 //ÏĞÈÌÅĞ ÂÛÇÎÂÀ ÑÎÕĞÀÍÅÍÈß ÈÇ ÄĞÓÃÎÃÎ ÊËÀÑÑÀ

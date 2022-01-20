@@ -103,7 +103,7 @@ public class GameStateController : MonoBehaviour
         Vector2 playerPos = LevelController.Instance.GetPlayerPos();
         _data.PlayerPosX = playerPos.x;
         _data.PlayerPosY = playerPos.y;
-        _data.InventoryItemsID = APInventoryController.Instance.GetInventoryItemIDs();//
+        _data.InventoryItemsID = APInventoryController.Instance.GetInventoryItemIDs();
 
         SaveController.Instance.SaveInfo(_data);
     }

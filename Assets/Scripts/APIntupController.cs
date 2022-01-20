@@ -129,7 +129,12 @@ public class APIntupController : MonoBehaviour
                 if (hit.collider.GetComponent<APItemController>())//если итем контроллер
                     player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APItemController>());
                 else
-                    player.SetNewMoveTarget(hit.point);
+                {
+                    if (hit.collider.GetComponent<EnlargedObject>())
+                        player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<EnlargedObject>());
+                    else
+                        player.SetNewMoveTarget(hit.point);
+                }
             }
         }
 #endif

@@ -83,8 +83,13 @@ public class APPlayerController : MonoBehaviour
             if (interactiveButton is APInteractbleObjController _classIntObj)
                 playerVisual.SetTrigger(_classIntObj.UseObject());
             else
+            {
                 if (interactiveButton is APItemController _classItem)
-                playerVisual.SetTrigger(_classItem.UseObject());
+                    playerVisual.SetTrigger(_classItem.UseObject());
+                else
+                    if (interactiveButton is EnlargedObject _classEnlargedObj)
+                        playerVisual.SetTrigger(_classEnlargedObj.UseObject());
+            }
         }
     }
     #endregion

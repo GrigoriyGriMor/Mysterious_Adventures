@@ -96,8 +96,14 @@ public class APInventoryController : MonoBehaviour
         StartCoroutine(SetNewItem(itemID, sprite, startItemPos));
     }
 
+    bool setItemCoroutine = false;
     private IEnumerator SetNewItem(int itemID, Sprite sprite, Vector2 startItemPos)
     {
+        while (setItemCoroutine)
+            yield return new WaitForFixedUpdate();
+
+        setItemCoroutine = true;
+
         moveItemImage.gameObject.SetActive(true);
         moveItemImage.GetComponent<Image>().sprite = sprite;
         moveItemImage.sizeDelta = startSizeMoveImage;
@@ -125,5 +131,7 @@ public class APInventoryController : MonoBehaviour
 
         itemIDs.Add(itemID);
         SetNewCard(itemID);
+
+        setItemCoroutine = false;
     }
 }
