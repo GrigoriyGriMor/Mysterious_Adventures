@@ -47,6 +47,8 @@ public class InventoryCard : MonoBehaviour
 
     public void ActiveInput()
     {
+        if (moveItem.gameObject.activeInHierarchy) return;
+
         if (control != null) StopCoroutine(control);
         control = StartCoroutine(ControlTouchPos());
     }
@@ -73,7 +75,23 @@ public class InventoryCard : MonoBehaviour
         control = null;
 
 #elif UNITY_ANDROID
+            float borderMPos = Touchscreen.current.position.ReadValue().y + (GetComponent<RectTransform>().sizeDelta.y / 2);
 
+            while (Touchscreen.current.position.ReadValue().y < borderMPos)
+                yield return new WaitForFixedUpdate();
+
+            itemInHand = true;
+            visual.gameObject.SetActive(false);
+            moveItem.gameObject.SetActive(true);
+            moveItem.GetComponent<Image>().sprite = AllItemAsset.Instance.GetItemSprite(itemID);
+
+            while (itemInHand)
+            {
+                moveItem.transform.position = Touchscreen.current.position.ReadValue();
+                yield return new WaitForFixedUpdate();
+            }
+
+            control = null;
 #endif
     }
 
@@ -84,6 +102,9 @@ public class InventoryCard : MonoBehaviour
             APIntupController.Instance.InputDeactive(this);
             itemInHand = false;
         }
+        else
+        if (control != null) 
+            StopCoroutine(control);
     }
 
     public void CancelItemUse()

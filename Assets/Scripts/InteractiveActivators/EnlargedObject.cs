@@ -11,6 +11,12 @@ public class EnlargedObject : MonoBehaviour
     [Header("Триггер Анимации взаимодействий")]
     [SerializeField] private string triggersForAnim = "";
 
+    private void Awake()
+    {
+        if (controller == null)
+            controller = FindObjectOfType<EnlargedObjectController>();
+    }
+
     public string UseObject()
     {
         controller.ActivatePanel(visual, Camera.main.WorldToScreenPoint(transform.position));

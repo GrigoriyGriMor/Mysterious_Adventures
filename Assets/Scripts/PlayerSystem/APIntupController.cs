@@ -94,47 +94,66 @@ public class APIntupController : MonoBehaviour
       
         if (hit.collider != null)
         {
-            if (hit.collider.GetComponent<APInteractbleObjController>() && hit.collider.GetComponent<APInteractbleObjController>().needUse)//если ИО
+            switch (hit.collider.GetComponent<MonoBehaviour>())
             {
-                if (itemInHand != null)// если в руке есть итем
-                {
-                    if (hit.collider.GetComponent<APInteractbleObjController>().NeedItem(itemInHand))// нужен ли итем для активации ИО? если да, то соответствуют ли ID
+                case APInteractbleObjController _obj:
+                    if (hit.collider.GetComponent<APInteractbleObjController>().needUse)//если ИО
                     {
-                        player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APInteractbleObjController>());
-                        itemInHand.CorrectItemUse();
+                        if (itemInHand != null)// если в руке есть итем
+                        {
+                            if (hit.collider.GetComponent<APInteractbleObjController>().NeedItem(itemInHand))// нужен ли итем для активации ИО? если да, то соответствуют ли ID
+                            {
+                                player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APInteractbleObjController>());
+                                itemInHand.CorrectItemUse();
+                            }
+                            else
+                            {
+                                itemInHand.CancelItemUse();
+                                itemInHand = null;
+                            }
+                        }
+                        else//если в руке нет итема
+                        {
+                            if (!hit.collider.GetComponent<APInteractbleObjController>().NeedItem())//для активации этого ИО точно не нужен итем?
+                                player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APInteractbleObjController>());
+                            else
+                                player.SetNewMoveTarget(hit.point);
+                        }
                     }
-                    else
+                  break;
+
+                case APItemController _obj:
+                    if (itemInHand != null)
                     {
                         itemInHand.CancelItemUse();
                         itemInHand = null;
+                        return;
                     }
-                }
-                else//если в руке нет итема
-                {
-                    if (!hit.collider.GetComponent<APInteractbleObjController>().NeedItem())//для активации этого ИО точно не нужен итем?
-                        player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APInteractbleObjController>());
-                    else
-                        player.SetNewMoveTarget(hit.point);
-                }
-            }
-            else
-            {
-                if (itemInHand != null)
-                {
-                    itemInHand.CancelItemUse();
-                    itemInHand = null;
-                    return;
-                }
 
-                if (hit.collider.GetComponent<APItemController>())//если итем контроллер
                     player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APItemController>());
-                else
-                {
-                    if (hit.collider.GetComponent<EnlargedObject>())
-                        player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<EnlargedObject>());
-                    else
-                        player.SetNewMoveTarget(hit.point);
-                }
+                    break;
+
+                case EnlargedObject _obj:
+                    if (itemInHand != null)
+                    {
+                        itemInHand.CancelItemUse();
+                        itemInHand = null;
+                        return;
+                    }
+
+                    player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<EnlargedObject>());
+                    break;
+
+                default:
+                    if (itemInHand != null)
+                    {
+                        itemInHand.CancelItemUse();
+                        itemInHand = null;
+                        return;
+                    }
+
+                    player.SetNewMoveTarget(hit.point);
+                    break;
             }
         }
 #endif

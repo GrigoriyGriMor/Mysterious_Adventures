@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System;
 public class APPlayerController : MonoBehaviour
 {
     [SerializeField] private Animator playerVisual;
@@ -27,6 +27,8 @@ public class APPlayerController : MonoBehaviour
 
     [SerializeField] private AudioClip backgroundClip;
 
+    private MoveType.moveMode moveType = MoveType.moveMode._onlyHorizontal;
+
     private void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody2D>();
@@ -45,7 +47,18 @@ public class APPlayerController : MonoBehaviour
     {
         if (!GameStateController.Instance.gameIsPlayed) return;
 
-        target = new Vector2(targetPos.x, transform.position.y);
+        switch (moveType)
+        {
+            case MoveType.moveMode._onlyHorizontal:
+                target = new Vector2(targetPos.x, transform.position.y);
+                break;
+            case MoveType.moveMode._onlyVertical:
+                target = new Vector2(transform.position.x, targetPos.y);
+                break;
+            case MoveType.moveMode._allVectors:
+                target = new Vector2(targetPos.x, targetPos.y);
+                break;
+        }
 
         if (transform.position.x > target.x && playerVisual.transform.localScale.x > 0)
             playerVisual.transform.localScale = new Vector3(playerVisual.transform.localScale.x * (-1), playerVisual.transform.localScale.y, playerVisual.transform.localScale.z);
@@ -62,20 +75,63 @@ public class APPlayerController : MonoBehaviour
     private IEnumerator Move(MonoBehaviour interactiveButton = null)
     {
         canMove = true;
-        playerVisual.SetBool("Run", true);
 
-        while (canMove && Mathf.Abs(transform.position.x - target.x) > 0.05f)
+        switch (moveType)
         {
-            if (playerVisual.transform.localScale.x > 0)
-                transform.position = new Vector2((transform.position.x + speed * Time.deltaTime), transform.position.y);
-            else
-                transform.position = new Vector2((transform.position.x - speed * Time.deltaTime), transform.position.y);
+            case MoveType.moveMode._onlyHorizontal://ïðîñòî áåã âëåâî/âïðàâî
+                playerVisual.SetBool("Run", true);
 
-            yield return new WaitForFixedUpdate();
+                while (canMove && Mathf.Abs(transform.position.x - target.x) > 0.05f)
+                {
+                    if (playerVisual.transform.localScale.x > 0)
+                        transform.position = new Vector2((transform.position.x + speed * Time.deltaTime), transform.position.y);
+                    else
+                        transform.position = new Vector2((transform.position.x - speed * Time.deltaTime), transform.position.y);
+
+                    yield return new WaitForFixedUpdate();
+                }
+                playerVisual.SetBool("Run", false);
+                break;
+
+            case MoveType.moveMode._onlyVertical://Ïîäúåì ââåðõ/âíèç
+                playerVisual.SetBool("MoveVertical", true);
+                //_rb.simulated = false; ÄÎËÆÍÎ ÁÛÒÜ Â ÊÎÍÒÐÎËÅ IDLE ÑÎÑÒÎßÍÈß
+
+                while (canMove && Mathf.Abs(transform.position.y - target.y) > 0.05f)
+                {
+                    if (transform.position.y > target.y)
+                        transform.position = new Vector2(transform.position.x, (transform.position.y - speed * Time.deltaTime));
+                    else
+                        transform.position = new Vector2(transform.position.x, (transform.position.y + speed * Time.deltaTime));
+
+                    Debug.LogError(Mathf.Abs(transform.position.y - target.y));
+                    yield return new WaitForFixedUpdate();
+                }
+
+                //_rb.simulated = true;
+                playerVisual.SetBool("MoveVertical", false);
+                break;
+
+            case MoveType.moveMode._allVectors://Ïîäúåì ââåðõ/âíèç/âëåâî/âïðàâî
+                playerVisual.SetBool("MoveVertical", true);
+                //_rb.simulated = false; ÄÎËÆÍÎ ÁÛÒÜ Â ÊÎÍÒÐÎËÅ IDLE ÑÎÑÒÎßÍÈß
+
+                while (canMove && Vector2.Distance(transform.position, target) > 0.05f)
+                {
+                        transform.position = new Vector2(
+                            (transform.position.x > target.x) ? (transform.position.y - speed * Time.deltaTime) : (transform.position.y + speed * Time.deltaTime), 
+                            (transform.position.y > target.y) ? (transform.position.y - speed * Time.deltaTime) : (transform.position.y + speed * Time.deltaTime));
+
+                    Debug.LogError(Mathf.Abs(transform.position.y - target.y));
+                    yield return new WaitForFixedUpdate();
+                }
+
+                //_rb.simulated = true;
+                playerVisual.SetBool("MoveVertical", false);
+                break;
         }
 
         canMove = false;
-        playerVisual.SetBool("Run", false);
 
         yield return new WaitForFixedUpdate();
         if (interactiveButton != null)
@@ -178,5 +234,31 @@ public class APPlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         GameStateController.Instance.GameEnd(false);
+    }
+}
+
+[Serializable]
+public class MoveType
+{
+    public enum moveMode { _onlyVertical, _onlyHorizontal, _allVectors };
+
+    private moveMode currentMode = moveMode._onlyHorizontal;
+
+    public void SetMode(moveMode mode)
+    {
+        switch (mode)
+        {
+            case moveMode._onlyVertical:
+                break;
+            case moveMode._onlyHorizontal:
+                break;
+            case moveMode._allVectors:
+                break;
+        }
+    }
+
+    public moveMode GetCurrentMode()
+    {
+        return currentMode;
     }
 }
