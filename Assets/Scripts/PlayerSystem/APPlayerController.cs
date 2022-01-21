@@ -1,3 +1,5 @@
+//ÍÀ ÂÑÅ ÝËÅÌÅÍÒÛ ÃÎÐÈÇÎÍÒÀËÜÍÎÃÎ ÏÎËÀ, ÍÅÎÁÕÎÄÈÌÎ ÑÒÀÂÈÒÜ ÒÅÃ "Bottom", èíòà÷å ïåðñîíàæ áóäåò îñòàíàâëèâàòüñÿ çàõîäÿ íà êàæäûé íîâûé áëîê
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -95,7 +97,6 @@ public class APPlayerController : MonoBehaviour
 
             case MoveType.moveMode._onlyVertical://Ïîäúåì ââåðõ/âíèç
                 playerVisual.SetBool("MoveVertical", true);
-                //_rb.simulated = false; ÄÎËÆÍÎ ÁÛÒÜ Â ÊÎÍÒÐÎËÅ IDLE ÑÎÑÒÎßÍÈß
 
                 while (canMove && Mathf.Abs(transform.position.y - target.y) > 0.05f)
                 {
@@ -108,25 +109,22 @@ public class APPlayerController : MonoBehaviour
                     yield return new WaitForFixedUpdate();
                 }
 
-                //_rb.simulated = true;
                 playerVisual.SetBool("MoveVertical", false);
                 break;
 
             case MoveType.moveMode._allVectors://Ïîäúåì ââåðõ/âíèç/âëåâî/âïðàâî
                 playerVisual.SetBool("MoveVertical", true);
-                //_rb.simulated = false; ÄÎËÆÍÎ ÁÛÒÜ Â ÊÎÍÒÐÎËÅ IDLE ÑÎÑÒÎßÍÈß
 
                 while (canMove && Vector2.Distance(transform.position, target) > 0.05f)
                 {
                         transform.position = new Vector2(
-                            (transform.position.x > target.x) ? (transform.position.y - speed * Time.deltaTime) : (transform.position.y + speed * Time.deltaTime), 
+                            (transform.position.x > target.x) ? (transform.position.x - speed * Time.deltaTime) : (transform.position.x + speed * Time.deltaTime), 
                             (transform.position.y > target.y) ? (transform.position.y - speed * Time.deltaTime) : (transform.position.y + speed * Time.deltaTime));
 
                     Debug.LogError(Mathf.Abs(transform.position.y - target.y));
                     yield return new WaitForFixedUpdate();
                 }
 
-                //_rb.simulated = true;
                 playerVisual.SetBool("MoveVertical", false);
                 break;
         }
@@ -216,6 +214,27 @@ public class APPlayerController : MonoBehaviour
         }
     }
 
+    public void SetNewMoveType(MoveType.moveMode _moveType = MoveType.moveMode._onlyHorizontal)
+    {
+        moveType = _moveType;
+
+        switch (_moveType)
+        {
+            case MoveType.moveMode._onlyHorizontal:
+                _rb.simulated = true;
+                playerVisual.SetTrigger("HorizontalIdle");
+                break;
+            case MoveType.moveMode._onlyVertical:
+                _rb.simulated = false;
+                playerVisual.SetTrigger("VerticalIdle");
+                break;
+            case MoveType.moveMode._allVectors:
+                _rb.simulated = false;
+                playerVisual.SetTrigger("AllVectorIdle");
+                break;
+        }
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (!GameStateController.Instance.gameIsPlayed) return;
@@ -225,6 +244,18 @@ public class APPlayerController : MonoBehaviour
 
         if (collision.GetComponent<APInteractbleObjController>() && !collision.GetComponent<APInteractbleObjController>().needUse)
             collision.GetComponent<APInteractbleObjController>().UseObject();
+
+        if (collision.GetComponent<LadderActivator>())
+                SetNewMoveType(MoveType.moveMode._allVectors);
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<LadderActivator>())
+        {
+            if (moveType == MoveType.moveMode._allVectors)
+                SetNewMoveType(MoveType.moveMode._onlyHorizontal);
+        }
     }
 
     private IEnumerator Die()
@@ -243,22 +274,4 @@ public class MoveType
     public enum moveMode { _onlyVertical, _onlyHorizontal, _allVectors };
 
     private moveMode currentMode = moveMode._onlyHorizontal;
-
-    public void SetMode(moveMode mode)
-    {
-        switch (mode)
-        {
-            case moveMode._onlyVertical:
-                break;
-            case moveMode._onlyHorizontal:
-                break;
-            case moveMode._allVectors:
-                break;
-        }
-    }
-
-    public moveMode GetCurrentMode()
-    {
-        return currentMode;
-    }
 }

@@ -69,23 +69,12 @@ public class APIntupController : MonoBehaviour
 
     private void ClickData()
     {
-#if UNITY_AN1DROID
+#if UNITY_ANDROID
         clickPos = Touchscreen.current.position.ReadValue();
-        clickVisual.gameObject.GetComponent<RectTransform>().position = clickPos;
-        clickVisual.SetTrigger("Start");
-
-        RaycastHit2D hit;
-        hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(clickPos), Vector2.zero);
-
-        if (hit.collider != null)
-        {
-            if (hit.collider.GetComponent<APInteractbleObjController>() && hit.collider.GetComponent<APInteractbleObjController>().needUse)
-                player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<APInteractbleObjController>());
-            else
-                player.SetNewMoveTarget(hit.point);
-        }
-#else
+#elif UNITY_EDITOR
         clickPos = Mouse.current.position.ReadValue();
+#endif
+
         clickVisual.gameObject.GetComponent<RectTransform>().position = clickPos;
         clickVisual.SetTrigger("Start");
 
@@ -156,16 +145,15 @@ public class APIntupController : MonoBehaviour
                     break;
             }
         }
-#endif
     }
 
     private IEnumerator InfoTimer()
     {
         yield return new WaitForSeconds(timeForObjInfoReqwest);
 
-#if UNITY_AND1ROID
+#if UNITY_ANDROID
         clickPos = Touchscreen.current.position.ReadValue();
-#else
+#elif UNITY_EDITOR
         clickPos = Mouse.current.position.ReadValue();
 #endif
         RaycastHit2D hit;

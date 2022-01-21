@@ -75,23 +75,23 @@ public class InventoryCard : MonoBehaviour
         control = null;
 
 #elif UNITY_ANDROID
-            float borderMPos = Touchscreen.current.position.ReadValue().y + (GetComponent<RectTransform>().sizeDelta.y / 2);
+        float borderMPos = Touchscreen.current.position.ReadValue().y + (GetComponent<RectTransform>().sizeDelta.y / 2);
 
-            while (Touchscreen.current.position.ReadValue().y < borderMPos)
-                yield return new WaitForFixedUpdate();
+        while (Touchscreen.current.position.ReadValue().y < borderMPos)
+            yield return new WaitForFixedUpdate();
 
-            itemInHand = true;
-            visual.gameObject.SetActive(false);
-            moveItem.gameObject.SetActive(true);
-            moveItem.GetComponent<Image>().sprite = AllItemAsset.Instance.GetItemSprite(itemID);
+        itemInHand = true;
+        visual.gameObject.SetActive(false);
+        moveItem.gameObject.SetActive(true);
+        moveItem.GetComponent<Image>().sprite = AllItemAsset.Instance.GetItemSprite(itemID);
 
-            while (itemInHand)
-            {
-                moveItem.transform.position = Touchscreen.current.position.ReadValue();
-                yield return new WaitForFixedUpdate();
-            }
+        while (itemInHand)
+        {
+            moveItem.transform.position = Touchscreen.current.position.ReadValue();
+            yield return new WaitForFixedUpdate();
+        }
 
-            control = null;
+        control = null;
 #endif
     }
 
