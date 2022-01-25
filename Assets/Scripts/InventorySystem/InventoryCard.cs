@@ -139,6 +139,17 @@ public class InventoryCard : MonoBehaviour
     public void CompliteItemUse()
     {
         moveItem.gameObject.SetActive(false);
-        Destroy(gameObject);
+        if (AllItemAsset.Instance.AskDeleteItemAfterUse(itemID))
+            Destroy(gameObject);
+        else
+            StartCoroutine(ReturnItemToInventory());
+    }
+
+    private IEnumerator ReturnItemToInventory()
+    {
+        cancelUse.Invoke();
+
+        yield return new WaitForSeconds(1.5f);
+        visual.gameObject.SetActive(true);
     }
 }

@@ -6859,12 +6859,15 @@ MonoBehaviour:
   - itemID: 1
     itemSprite: {fileID: 5784290466859333094, guid: 6e882cef35d07764ebd5e8c18235fdfc, type: 3}
     itemName: fakel
+    deleteItemAfterUse: 1
   - itemID: 2
     itemSprite: {fileID: 21300022, guid: 66e56e4315aaabd49b38cfec8a9dddf5, type: 3}
     itemName: fakel1
+    deleteItemAfterUse: 0
   - itemID: 3
     itemSprite: {fileID: -5288032362848710827, guid: a059e2bb1fac52d4ea66275caf58fde0, type: 3}
     itemName: fakel2
+    deleteItemAfterUse: 1
   defaultSprite: {fileID: -4633484970933040774, guid: 6e882cef35d07764ebd5e8c18235fdfc, type: 3}
 --- !u!4 &1213989394
 Transform:
@@ -9791,7 +9794,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728328460}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3, y: 2.05, z: 0}
+  m_LocalPosition: {x: -4.2, y: 3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1232619770}

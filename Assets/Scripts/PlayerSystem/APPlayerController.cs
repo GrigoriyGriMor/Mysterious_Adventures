@@ -121,7 +121,6 @@ public class APPlayerController : MonoBehaviour
                             (transform.position.x > target.x) ? (transform.position.x - speed * Time.deltaTime) : (transform.position.x + speed * Time.deltaTime), 
                             (transform.position.y > target.y) ? (transform.position.y - speed * Time.deltaTime) : (transform.position.y + speed * Time.deltaTime));
 
-                    Debug.LogError(Mathf.Abs(transform.position.y - target.y));
                     yield return new WaitForFixedUpdate();
                 }
 

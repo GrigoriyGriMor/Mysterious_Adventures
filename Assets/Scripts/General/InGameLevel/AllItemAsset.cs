@@ -35,6 +35,15 @@ public class AllItemAsset : MonoBehaviour
 
         return "not found";
     }
+
+    public bool AskDeleteItemAfterUse(int ID)
+    {
+        for (int i = 0; i < allItems.Length; i++)
+            if (allItems[i].itemID == ID)
+                return allItems[i].deleteItemAfterUse;
+
+        return true;
+    }
 }
 
 [Serializable]
@@ -43,4 +52,5 @@ public class ItemInfo
     public int itemID;
     public Sprite itemSprite;
     public string itemName;
+    public bool deleteItemAfterUse = true;
 }

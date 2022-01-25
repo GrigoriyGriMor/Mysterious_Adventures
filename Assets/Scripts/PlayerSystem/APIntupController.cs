@@ -69,10 +69,10 @@ public class APIntupController : MonoBehaviour
 
     private void ClickData()
     {
-#if UNITY_ANDROID
-        clickPos = Touchscreen.current.position.ReadValue();
-#elif UNITY_EDITOR
+#if UNITY_EDITOR
         clickPos = Mouse.current.position.ReadValue();
+#elif UNITY_ANDROID
+        clickPos = Touchscreen.current.position.ReadValue();
 #endif
 
         clickVisual.gameObject.GetComponent<RectTransform>().position = clickPos;
