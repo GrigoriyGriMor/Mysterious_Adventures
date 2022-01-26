@@ -45,6 +45,8 @@ public class APPlayerController : MonoBehaviour
     private Coroutine moveCorouine;
     //функция приема точки куда должен идти персонаж
     #region Move
+
+    // устанавливает новую цель куда нужно двигаться и нужно ли активировать какой-либо объект после достижения цели.
     public void SetNewMoveTarget(Vector2 targetPos, MonoBehaviour interactiveButton = null)
     {
         if (!GameStateController.Instance.gameIsPlayed) return;
@@ -78,6 +80,7 @@ public class APPlayerController : MonoBehaviour
     {
         canMove = true;
 
+        // в зависимости от типа движения перемещает персонажа в нужную точку
         switch (moveType)
         {
             case MoveType.moveMode._onlyHorizontal://просто бег влево/вправо
@@ -115,7 +118,7 @@ public class APPlayerController : MonoBehaviour
             case MoveType.moveMode._allVectors://Подъем вверх/вниз/влево/вправо
                 playerVisual.SetBool("MoveVertical", true);
 
-                while (canMove && Vector2.Distance(transform.position, target) > 0.05f)
+                while (canMove && Vector2.Distance(transform.position, target) > 0.1f)
                 {
                         transform.position = new Vector2(
                             (transform.position.x > target.x) ? (transform.position.x - speed * Time.deltaTime) : (transform.position.x + speed * Time.deltaTime), 
@@ -130,6 +133,8 @@ public class APPlayerController : MonoBehaviour
 
         canMove = false;
 
+        // Ниже важная часть использования объекта: когда игрок кликает на интерактивный элемент, персонаж сначала должен до него дойти, и только после использовать.
+        // что за объект он использует распознается здесь. (пытался сделать свичем, но там так нельзя, обращаем внимание на структуру if)
         yield return new WaitForFixedUpdate();
         if (interactiveButton != null)
         {
@@ -205,7 +210,7 @@ public class APPlayerController : MonoBehaviour
         if (collision.gameObject.GetComponent<DangerObstacle>())
             StartCoroutine(Die());
 
-        if (collision.gameObject.tag != "Bottom")
+        if (collision.gameObject.tag != "Bottom")// ВАЖНО не упустить данный момент из памяти, определяет с чем столкнулся персонаж, если это не пол, то отменяет крайний клик игрока и останавливает персонажа
         { 
             if (moveCorouine != null) StopCoroutine(moveCorouine);
             canMove = false;
@@ -213,6 +218,7 @@ public class APPlayerController : MonoBehaviour
         }
     }
 
+    // регулирует тип движения персонажа (переключатель)
     public void SetNewMoveType(MoveType.moveMode _moveType = MoveType.moveMode._onlyHorizontal)
     {
         moveType = _moveType;
@@ -220,19 +226,21 @@ public class APPlayerController : MonoBehaviour
         switch (_moveType)
         {
             case MoveType.moveMode._onlyHorizontal:
-                _rb.simulated = true;
+                _rb.bodyType = RigidbodyType2D.Dynamic;
                 playerVisual.SetTrigger("HorizontalIdle");
                 break;
             case MoveType.moveMode._onlyVertical:
-                _rb.simulated = false;
+                _rb.bodyType = RigidbodyType2D.Kinematic;
                 playerVisual.SetTrigger("VerticalIdle");
                 break;
             case MoveType.moveMode._allVectors:
-                _rb.simulated = false;
+                _rb.bodyType = RigidbodyType2D.Kinematic;
                 playerVisual.SetTrigger("AllVectorIdle");
                 break;
         }
     }
+
+    int ladderColliderCount = 0;//костыль, нужен что бы определить находится ли персонаж еще на лианах или нет. (тк онтриггерексит работает все время и переключает режим после любого выхода)
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -245,15 +253,20 @@ public class APPlayerController : MonoBehaviour
             collision.GetComponent<APInteractbleObjController>().UseObject();
 
         if (collision.GetComponent<LadderActivator>())
-                SetNewMoveType(MoveType.moveMode._allVectors);
+        {
+            SetNewMoveType(MoveType.moveMode._allVectors);
+            ladderColliderCount += 1;
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.GetComponent<LadderActivator>())
         {
-            if (moveType == MoveType.moveMode._allVectors)
+            if (ladderColliderCount <= 1 && moveType == MoveType.moveMode._allVectors)
                 SetNewMoveType(MoveType.moveMode._onlyHorizontal);
+
+            ladderColliderCount -= 1;
         }
     }
 
