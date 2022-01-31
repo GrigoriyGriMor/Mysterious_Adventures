@@ -24,9 +24,9 @@ public class APIntupController : MonoBehaviour
         instance = this;
     }
 
-    public void InputActive()
+    public void InputActive()//сюда идут ссылки из объекта на сцене "InputSystem"
     {
-        if (itemInHand != null)
+        if (itemInHand != null)// если мы держим какой либо итем из инвентаря в руке, то аннулируем его использование(тк игрок ткнул повторно в другую точку, а должен был перетащить предмет)
         {
             itemInHand.CancelItemUse();
             itemInHand = null;
@@ -39,16 +39,16 @@ public class APIntupController : MonoBehaviour
         if (infoCoroutine != null)
             StopCoroutine(infoCoroutine);
 
-        infoCoroutine = StartCoroutine(InfoTimer());
+        infoCoroutine = StartCoroutine(InfoTimer());// определитель зажатия на объекте. (если игрок держит объект зажатым более 1.5 сек, то выводим подсказку)
     }
 
-    public void InputDeactive()
+    public void InputDeactive()//сюда идут ссылки из объекта на сцене "InputSystem"
     {
         if (!GameStateController.Instance.gameIsPlayed) return;
 
         drag = false;
 
-        ClickData();
+        ClickData();//класс обработки нажатия
 
         if (infoCoroutine != null)
             StopCoroutine(infoCoroutine);

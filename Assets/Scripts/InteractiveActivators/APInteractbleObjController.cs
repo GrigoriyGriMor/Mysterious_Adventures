@@ -52,11 +52,14 @@ public class APInteractbleObjController : MonoBehaviour
         return triggersForAnim;
     }
 
+    //возвращает ответ на вопрос нужен ли итем, что бы использовать "рычаг" 
     public bool NeedItem(InventoryCard itemID = null)
     {
         if (needItem && (itemID != null && itemID.GetID() == needItemID))
         {
             itemBeLoad = itemID;
+            // ниже очень важный момент (по идее такого делать не стоит, но тут пришлось), если нам передали какой-то объект из инвентаря на проверку, этот рычаг подписывается на событие "отмену использования" предмета из инвентаря.
+            // нужно это было для того, что бы передать итем напрямую сразу после клика на него нужным предметом, а не передачи через плеерконтроллер и другие классы.
             itemBeLoad.cancelUse.AddListener(() =>
             {
                 itemBeLoad.cancelUse.RemoveAllListeners();
