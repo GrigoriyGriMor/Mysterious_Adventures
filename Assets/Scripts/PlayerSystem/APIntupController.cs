@@ -133,6 +133,28 @@ public class APIntupController : MonoBehaviour
                     player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<EnlargedObject>());
                     break;
 
+                case ConvertTrigger _ogj:
+                    if (itemInHand != null)
+                    {
+                        itemInHand.CancelItemUse();
+                        itemInHand = null;
+                        return;
+                    }
+
+                    player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<ConvertTrigger>());
+                    break;
+
+                case Shop _obj:
+                    if (itemInHand != null)
+                    {
+                        itemInHand.CancelItemUse();
+                        itemInHand = null;
+                        return;
+                    }
+
+                    player.SetNewMoveTarget(hit.point, hit.collider.GetComponent<Shop>());
+                    break;
+
                 default:
                     if (itemInHand != null)
                     {

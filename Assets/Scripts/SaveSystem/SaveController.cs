@@ -23,6 +23,7 @@ public class SaveController : MonoBehaviour
         else
         {
             _data.LevelId = -1;//ID уровня
+            _data.Diamond = 0;//Количество алмазов
             _data.PlayerPosX = 0;//Позиция игрока по Х
             _data.PlayerPosY = 0;//Позиция игрока по Y
             _data.InventoryItemsID = new int[0];//Название итема в инвентаре привязанные к ID в массиве
@@ -36,6 +37,7 @@ public class SaveController : MonoBehaviour
     public void SaveInfo(SaveData newData)
     {
         _data.LevelId = newData.LevelId;
+        _data.Diamond = newData.Diamond;
         _data.PlayerPosX = newData.PlayerPosX;
         _data.PlayerPosY = newData.PlayerPosY;
         _data.InventoryItemsID = newData.InventoryItemsID;
@@ -72,6 +74,7 @@ public class SaveController : MonoBehaviour
 public class SaveData 
 {
     public int LevelId;
+    public int Diamond;
     public float PlayerPosX;
     public float PlayerPosY;
     public int[] InventoryItemsID = new int[0];

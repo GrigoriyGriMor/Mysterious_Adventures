@@ -9,6 +9,8 @@ TagManager:
   - Trigger
   - Spike
   - Bottom
+  - CoinDie
+  - CoinCenter
   layers:
   - Default
   - TransparentFX

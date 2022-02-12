@@ -145,8 +145,16 @@ public class APPlayerController : MonoBehaviour
                 if (interactiveButton is APItemController _classItem)
                     playerVisual.SetTrigger(_classItem.UseObject());
                 else
+                {
                     if (interactiveButton is EnlargedObject _classEnlargedObj)
                         playerVisual.SetTrigger(_classEnlargedObj.UseObject());
+
+                    else if (interactiveButton is ConvertTrigger _classConvertTrigger)
+                        playerVisual.SetTrigger(_classConvertTrigger.UseObject());
+
+                    else if (interactiveButton is Shop _classShop)
+                        playerVisual.SetTrigger(_classShop.BuyPanelOn());
+                }
             }
         }
     }
