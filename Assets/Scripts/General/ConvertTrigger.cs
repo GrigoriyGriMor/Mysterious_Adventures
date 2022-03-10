@@ -18,7 +18,7 @@ public class ConvertTrigger : MonoBehaviour
     public string UseObject()
     {
         ObjectPool.Convert12();
-
+        Debug.Log("TRIGGER");
         return triggersForAnim;
     }
 }
