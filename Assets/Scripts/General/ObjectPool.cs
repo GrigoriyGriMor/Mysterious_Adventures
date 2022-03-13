@@ -12,13 +12,14 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private ParticleSystem Particle;
     [SerializeField] private int Price;
     [SerializeField] private float DelayToPrice;
+    [SerializeField] private GameObject ConvertGameObject;
 
-
+    private CoinMove CoinMove;
     private GameObject[] diamondArray;
 
     private void Awake()
     {
-        Debug.Log(gameObject.name);
+        CoinMove = GetComponent<CoinMove>();
 
         diamondArray = new GameObject[SpawnDiamondNumber];
 
@@ -53,24 +54,27 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
+    //переменна для того что бы следить сколько раз вызывали функцию CoinMove.Convert
+    public bool CoinMoveStart = false;
+
     private IEnumerator DiamondMove(GameObject diamond, GameObject targetPos)
     {
-        while (true)
+        while (diamond.transform.position != targetPos.transform.position)
         {
-            if (diamond.transform.position == targetPos.transform.position)
-            {
-                StartCoroutine(ConvertDiamondToCoin());
-                break;
-            }
-
             diamond.transform.position = Vector2.MoveTowards(diamond.transform.position, targetPos.transform.position, Speed * Time.deltaTime);
             yield return new WaitForFixedUpdate();
         }
-    }
 
-    private IEnumerator ConvertDiamondToCoin()
-    {
-        yield return new WaitForSeconds(DelayToPrice);
-        AllScore.Coin += Price;
+        while (true)
+        {
+            if (CoinMoveStart == false)
+            {
+                CoinMove.StartCoroutine(CoinMove.Convert(Price, ConvertGameObject));
+                CoinMoveStart = true;
+                break;
+            }
+
+            yield return new WaitForFixedUpdate();
+        }
     }
 }
